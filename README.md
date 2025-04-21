@@ -40,3 +40,7 @@
 > "Writing code is the _process_ of working your way to the next stable end point, not the end point itself. You don't know the answer in advance, but instead, you are seeking it"
 
 ### Chapter 01 - Rediscovering Simplicity
+
+> "The code you write should meet two often-contradictory goals. It must remain concrete enough to be understood while simultaneously being abstract enough to allow for change."
+
+-
