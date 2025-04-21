@@ -1,13 +1,16 @@
-# 99 Bottles of OOP
+# 99 Bottles of OOP Cheatsheet
 
-- [99 Bottles of OOP](#99-bottles-of-oop)
+- [99 Bottles of OOP Cheatsheet](#99-bottles-of-oop-cheatsheet)
   - [Chapters](#chapters)
   - [Notes](#notes)
-    - [Chapter 01](#chapter-01)
+    - [Preface](#preface)
+    - [Introduction](#introduction)
+    - [Chapter 01 - Rediscovering Simplicity](#chapter-01---rediscovering-simplicity)
 
 ## Chapters
 
-- [ ] Preface
+- [x] ~~_Preface_~~ [2025-04-21]
+- [x] ~~_Introduction_~~ [2025-04-21]
 - [ ] Chapter 01 - Rediscovering Simplicity
 - [ ] Chapter 02 - Test Driving Shameless Green
 - [ ] Chapter 03 - Unearthing Concepts
@@ -20,4 +23,20 @@
 
 ## Notes
 
-### Chapter 01
+### Preface
+
+- Authors:
+  - Sandi Metz
+  - Katrina Owen
+  - TJ Stankus
+- This book teaches you to write cost-effective, maintainable, and pleasing code.
+
+> "While reading, resist the urge to resist."
+
+> "While reading has value, doing has more."
+
+### Introduction
+
+> "Writing code is the _process_ of working your way to the next stable end point, not the end point itself. You don't know the answer in advance, but instead, you are seeking it"
+
+### Chapter 01 - Rediscovering Simplicity
