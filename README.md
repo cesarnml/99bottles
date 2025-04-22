@@ -6,6 +6,7 @@
     - [Preface](#preface)
     - [Introduction](#introduction)
     - [Chapter 01 - Rediscovering Simplicity](#chapter-01---rediscovering-simplicity)
+      - [1.1 Simplifying Code](#11-simplifying-code)
 
 ## Chapters
 
@@ -41,6 +42,8 @@
 
 ### Chapter 01 - Rediscovering Simplicity
 
+#### 1.1 Simplifying Code
+
 > "The code you write should meet two often-contradictory goals. It must remain concrete enough to be understood while simultaneously being abstract enough to allow for change."
 
 - Good OO requires 3 things:
@@ -68,3 +71,44 @@ constructor(logger) {
 > "DRYing out code inserts a level of indirection between the place that uses behavior and the place that defines it."
 
 > "There's a sweet spot that represents the perfect compromise between comprehension and changeability, and it's your job as a programmer to find it."
+
+- `Incomprehensibly Concise` solution's main sin is the use of nested ternaries which are the work of the devil
+
+- Nice burn:
+  - > "The code ... performs a neat trick. It manages to be concise to the point of incomprehensibility while simultaneously retaining loads of duplication."
+
+> "Nested conditionals make code harder for humans to parse; this style of coding raises costs without providing benefits."
+
+> "... if you want to achieve maximum confusion, you can interpolate duplicated logic _inside_ strings"
+
+> "a 'method' is defined on an object, and contains behavior."
+
+> "You 'send a message' to an object to invoke behavior."
+
+- `calling` a method implies knowledge of implementation. `sending a message` suggest willful ignorance of receiver implementation details
+
+Qualitative Code Quality Questions:
+
+- 1. How difficult was it to write?
+- 2. How hard is it to understand?
+- 3. How expensive will it be to change?
+
+> "The past ("was it") is a memory, the future ("will it be") is imaginary, but the present ("is it") is true right now."
+
+> "Brevity may be the soul of wit, but it quickly becomes tedious in code."
+
+- `Speculatively General`:
+
+  - > "You must resist being clever for its own sake."
+  - > "it is incumbent upon you to accept the _harder_ task and write simpler code."
+
+- `Concretely Abstract`
+
+> "Recognize ... that DRYing out code is not free. It adds a level of indirection, and layers of indirection make the _details_ of what's happening harder to understand."
+
+> "[When you name a] method after what it does right now ... you can never change that internal implementation without ruining the method name."
+
+> "You should name methods not after what they do, but after what they mean, what they represent in the context of your domain."
+
+- `Shameless Green`
+- Close to the solution that I implemented, except I added a level of abstraction at each line of the verse level
