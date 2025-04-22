@@ -7,6 +7,9 @@
     - [Introduction](#introduction)
     - [Chapter 01 - Rediscovering Simplicity](#chapter-01---rediscovering-simplicity)
       - [1.1 Simplifying Code](#11-simplifying-code)
+      - [1.2 Judging Code](#12-judging-code)
+      - [1.3 Summary](#13-summary)
+    - [Chapter 02 - Test Driving Shameless Green](#chapter-02---test-driving-shameless-green)
 
 ## Chapters
 
@@ -112,3 +115,20 @@ Qualitative Code Quality Questions:
 
 - `Shameless Green`
 - Close to the solution that I implemented, except I added a level of abstraction at each line of the verse level
+
+#### 1.2 Judging Code
+
+> "Any pile of code an be made to _work_; good code not only works, but is also simple, understandable, expressive and changeable."
+
+- Fact-Based Code Quality Metrics:
+  1. Source Lines of Code (SLOC or LOC)
+  2. Cyclomatic Complexity
+  3. Assignments, Branches, and Conditions (ABC) Metric
+
+#### 1.3 Summary
+
+> "It doesn't dispute that DRY is good, rather, it believes that it is cheaper to manage temporary duplication than to recover from incorrect abstractions."
+
+> "Code that's good enough when nothing ever changes may _not_ be good enough when things do."
+
+### Chapter 02 - Test Driving Shameless Green
