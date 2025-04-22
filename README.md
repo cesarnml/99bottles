@@ -44,6 +44,27 @@
 > "The code you write should meet two often-contradictory goals. It must remain concrete enough to be understood while simultaneously being abstract enough to allow for change."
 
 - Good OO requires 3 things:
+
   - 1. Testing. Knowledge of how to write good tests.
   - 2. Refactoring. Ability to rearrange existing code without breaking it.
   - 3. OO. Deep understanding of the concepts behind OO programming and design
+
+- Confusing passage:
+  - > "Have you injected a dependency instead of hard-coding the class name of a collaborator? The receiver can now freely depend on new and previously unforeseen objects, but it must remain ignorant of their actual class."
+  - Something to do with `dependency injection` wrt to `collaborator class name` ...
+  - AI Explanation:
+    Instead of a class directly instantiating or referencing another class (hard-coding the collaborator), you "inject" the dependency—usually by passing it in as a parameter (to a constructor or method). This allows the class (the receiver) to work with any object that meets the expected interface, not just a specific class. The receiver doesn't need to know the actual class of the collaborator, making the code more flexible, testable, and open to extension.
+
+```js
+// Instead of this (hard-coded):
+this.logger = new ConsoleLogger();
+
+// Use dependency injection:
+constructor(logger) {
+  this.logger = logger;
+}
+```
+
+> "DRYing out code inserts a level of indirection between the place that uses behavior and the place that defines it."
+
+> "There's a sweet spot that represents the perfect compromise between comprehension and changeability, and it's your job as a programmer to find it."
