@@ -43,4 +43,7 @@
 
 > "The code you write should meet two often-contradictory goals. It must remain concrete enough to be understood while simultaneously being abstract enough to allow for change."
 
--
+- Good OO requires 3 things:
+  - 1. Testing. Knowledge of how to write good tests.
+  - 2. Refactoring. Ability to rearrange existing code without breaking it.
+  - 3. OO. Deep understanding of the concepts behind OO programming and design
