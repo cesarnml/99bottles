@@ -27,7 +27,7 @@
 
 - [x] ~~_Preface_~~ [2025-04-21]
 - [x] ~~_Introduction_~~ [2025-04-21]
-- [ ] Chapter 01 - Rediscovering Simplicity
+- [x] ~~_Chapter 01 - Rediscovering Simplicity_~~ [2025-04-22]
 - [ ] Chapter 02 - Test Driving Shameless Green
 - [ ] Chapter 03 - Unearthing Concepts
 - [ ] Chapter 04 - Practicing Horizontal Refactoring
@@ -85,7 +85,7 @@ constructor(logger) {
 
 > "DRYing out code inserts a level of indirection between the place that uses behavior and the place that defines it."
 
-> "There's a sweet spot that represents the perfect compromise between comprehension and changeability, and it's your job as a programmer to find it."
+> There's a sweet spot that represents the perfect compromise between comprehension and changeability, and it's your job as a programmer to find it.
 
 - `Incomprehensibly Concise` solution's main sin is the use of nested ternaries which are the work of the devil
 
@@ -151,7 +151,7 @@ Qualitative Code Quality Questions:
 
 > "Quick green excuses all sins."
 
-> "The Shameless Green solution strives for maximum undersandability but is generally unconverned with changeability."
+> "The Shameless Green solution strives for maximum understandabillity but is generally unconcerned with changeability."
 
 #### 2.2 Writing the First Test
 

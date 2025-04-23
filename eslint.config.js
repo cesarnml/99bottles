@@ -26,4 +26,4 @@ module.exports = {
     semi: 'never',
     'no-undef': 'never',
   },
-}
+};
