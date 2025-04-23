@@ -10,6 +10,18 @@
       - [1.2 Judging Code](#12-judging-code)
       - [1.3 Summary](#13-summary)
     - [Chapter 02 - Test Driving Shameless Green](#chapter-02---test-driving-shameless-green)
+      - [2.1 Understanding Testings](#21-understanding-testings)
+      - [2.2 Writing the First Test](#22-writing-the-first-test)
+      - [2.3 Removing Duplication](#23-removing-duplication)
+      - [2.4 Tolerating Duplication](#24-tolerating-duplication)
+      - [2.5 Hewing to the Plan](#25-hewing-to-the-plan)
+      - [2.6 Exposing Responsibilities](#26-exposing-responsibilities)
+      - [2.7 Choosing Names](#27-choosing-names)
+      - [2.8 Revealing Intentions](#28-revealing-intentions)
+      - [2.9 Writing Cost-Effective Tests](#29-writing-cost-effective-tests)
+      - [2.10 Avoiding te Echo-Chamber](#210-avoiding-te-echo-chamber)
+      - [2.11 Considering Options](#211-considering-options)
+      - [2.12 Summary](#212-summary)
 
 ## Chapters
 
@@ -132,3 +144,41 @@ Qualitative Code Quality Questions:
 > "Code that's good enough when nothing ever changes may _not_ be good enough when things do."
 
 ### Chapter 02 - Test Driving Shameless Green
+
+#### 2.1 Understanding Testings
+
+- Kent Beck _Red/Green/Refactor_ cycle aka "the TDD mantra"
+
+> "Quick green excuses all sins."
+
+> "The Shameless Green solution strives for maximum undersandability but is generally unconverned with changeability."
+
+#### 2.2 Writing the First Test
+
+#### 2.3 Removing Duplication
+
+#### 2.4 Tolerating Duplication
+
+#### 2.5 Hewing to the Plan
+
+#### 2.6 Exposing Responsibilities
+
+#### 2.7 Choosing Names
+
+#### 2.8 Revealing Intentions
+
+#### 2.9 Writing Cost-Effective Tests
+
+#### 2.10 Avoiding te Echo-Chamber
+
+#### 2.11 Considering Options
+
+#### 2.12 Summary
+
+> "Testing, done well, speeds development and lowers costs."
+
+> "TDD ... commit to writing code in small steps."
+
+> "Tests ... make it safe and easy to refactor if decoupled from code."
+
+> "Good tests not only tell a story, but they lead, step by step, to a well-organized solution."
