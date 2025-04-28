@@ -28,7 +28,7 @@
 - [x] ~~_Preface_~~ [2025-04-21]
 - [x] ~~_Introduction_~~ [2025-04-21]
 - [x] ~~_Chapter 01 - Rediscovering Simplicity_~~ [2025-04-22]
-- [ ] Chapter 02 - Test Driving Shameless Green
+- [x] ~~_Chapter 02 - Test Driving Shameless Green_~~ [2025-04-28]
 - [ ] Chapter 03 - Unearthing Concepts
 - [ ] Chapter 04 - Practicing Horizontal Refactoring
 - [ ] Chapter 05 - Separating Responsibilities
@@ -154,6 +154,8 @@ Qualitative Code Quality Questions:
 > "The Shameless Green solution strives for maximum understandabillity but is generally unconcerned with changeability."
 
 #### 2.2 Writing the First Test
+
+> "While in the 'writing tests' hat, you keep your eye on the big picture and work your way forward with the overall plan in mind. When in the 'writing code' hat, you pretend to know nothing other than the requirements specified by the tests at hand."
 
 #### 2.3 Removing Duplication
 
