@@ -1,0 +1,19 @@
+{
+  "name": "bun-version",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "bun test ./index.test.ts",
+    "test:watch": "bun --watch test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "prettier": "^3.5.3"
+  }
+}
