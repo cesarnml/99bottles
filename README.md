@@ -159,7 +159,16 @@ Qualitative Code Quality Questions:
 
 #### 2.3 Removing Duplication
 
+> "As the tests get more specific, the code gets more generic."
+
 #### 2.4 Tolerating Duplication
+
+- Question to ask when DRYing:
+  - 1. _Does the change I'm contemplating make the code harder to understand?_
+  - 2. _What is the future cost of doing nothing now?_
+  - 3. _When will the future arrive, or how soon will I get more information?_
+
+> "It's better to tolerate duplication than to anticipate the wrong abstraction.
 
 #### 2.5 Hewing to the Plan
 
