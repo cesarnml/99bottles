@@ -1,18 +1,63 @@
+const capitalize = (word: string) =>
+  word.charAt(0).toUpperCase() + word.slice(1)
+
+const highToLow = (upper: number, lower: number) => {
+  return Array(upper - lower + 1)
+    .fill(null)
+    .map((_, i) => upper - i)
+}
+
 export class Bottles {
-  //   song() {}
-  //   verses(high: number, low: number) {}
+  song() {
+    return this.verses(99, 0)
+  }
+
+  verses(upper: number, lower: number) {
+    return highToLow(upper, lower)
+      .map(i => this.verse(i))
+      .join('\n')
+  }
+
   verse(num: number) {
+    return (
+      `${capitalize(this.quantity(num))} ${this.container(num)} of beer on the wall, ${this.quantity(num)} ${this.container(num)} of beer.\n` +
+      `${this.response(num)}, ${this.quantity(num - 1)} ${this.container(num - 1)} of beer on the wall.\n`
+    )
+  }
+
+  response(num: number) {
     switch (num) {
-      case 2:
-        return (
-          '2 bottles of beer on the wall, 2 bottles of beer.\n' +
-          'Take one down and pass it around, 1 bottle of beer on the wall.\n'
-        )
+      case 0:
+        return 'Go to the store and buy some more'
       default:
-        return (
-          `${num} bottles of beer on the wall, ${num} bottles of beer.\n` +
-          `Take one down and pass it around, ${num - 1} bottles of beer on the wall.\n`
-        )
+        return `Take ${this.pronoun(num)} down and pass it around`
+    }
+  }
+
+  pronoun(num: number) {
+    switch (num) {
+      case 1:
+        return 'it'
+      default:
+        return 'one'
+    }
+  }
+
+  quantity(num: number) {
+    if (num < 0) {
+      return '99'
+    } else if (num === 0) {
+      return 'no more'
+    } else {
+      return num.toString()
+    }
+  }
+
+  container(num: number) {
+    if (num === 1) {
+      return 'bottle'
+    } else {
+      return 'bottles'
     }
   }
 }

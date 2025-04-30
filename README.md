@@ -172,17 +172,46 @@ Qualitative Code Quality Questions:
 
 #### 2.5 Hewing to the Plan
 
+> "The goal [of Shameless Green] to maximize your understanding of the problem and to unearth all available information before committing to abstractions."
+
+- `switch` implies that every condition checks for equality against an explicit value. Readers of switch statements expect condition to be fundamentally the same.
+
+- The goal is to quickly maximize the number of whole examples before extracting abstractions from their parts.
+
 #### 2.6 Exposing Responsibilities
+
+> "Duplication is useful when it supplies independent, specific examples of a general concept that you don't yet understand."
+
+> "Code longs to be as ignorant as possible."
+
+- 3 Wars to Make Test Pass:
+  - 1. Fake It ("Til You Make It")
+  - 2. Obvious Implementation
+  - 3. Triangulate - _"conservatively drive abstraction with tests"_ - Write multiple broken test, then fix all of them with one bit of code
+
+> "Developing the habit of writing just enough code to pass the tests forces you to write better tests. It also provides an antidote for the hubris of thinking you know that's right when you're actually wrong."
 
 #### 2.7 Choosing Names
 
+> "Knowledge that one object has about another creates a dependency. Dependencies tie objects together, exacerbating the cost of change. Your goal as a _message sender_ is to incur a limited number of dependencies, and your obligation as a _method provider_ is to inflict few."
+
 #### 2.8 Revealing Intentions
+
+> "The distinction between intention and implementation ... allows you to understand a computation first in essence and later, if necessary, in detail."
 
 #### 2.9 Writing Cost-Effective Tests
 
+> "The first step in learning the art of testing is to understand how to write tests that confirm _what_ your code does without any knowledge of _how_ your code does it."
+
 #### 2.10 Avoiding te Echo-Chamber
 
+- Clarity over DRY in test
+
 #### 2.11 Considering Options
+
+> "Tests are not the place for abstractions - they are the place for concretions. Abstractions belong in code."
+
+> "DRY is a very good idea in code, but much less useful in tests. When testing, the best choice is very often just to write it down."
 
 #### 2.12 Summary
 
