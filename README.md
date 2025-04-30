@@ -22,6 +22,15 @@
       - [2.10 Avoiding te Echo-Chamber](#210-avoiding-te-echo-chamber)
       - [2.11 Considering Options](#211-considering-options)
       - [2.12 Summary](#212-summary)
+    - [Chapter 03 - Unearthing Concepts](#chapter-03---unearthing-concepts)
+      - [3.1 Listening to Change](#31-listening-to-change)
+      - [3.2 Starting With the Open/Closed Principle](#32-starting-with-the-openclosed-principle)
+      - [3.3 Recognizing Code Smells](#33-recognizing-code-smells)
+      - [3.4 Identifying the Best Point of Attack](#34-identifying-the-best-point-of-attack)
+      - [3.5 Refactoring Systematically](#35-refactoring-systematically)
+      - [3.6 Following the Flocking Rules](#36-following-the-flocking-rules)
+      - [3.7 Converging on Abstractions](#37-converging-on-abstractions)
+      - [3.8 Summary](#38-summary)
 
 ## Chapters
 
@@ -222,3 +231,21 @@ Qualitative Code Quality Questions:
 > "Tests ... make it safe and easy to refactor if decoupled from code."
 
 > "Good tests not only tell a story, but they lead, step by step, to a well-organized solution."
+
+### Chapter 03 - Unearthing Concepts
+
+#### 3.1 Listening to Change
+
+#### 3.2 Starting With the Open/Closed Principle
+
+#### 3.3 Recognizing Code Smells
+
+#### 3.4 Identifying the Best Point of Attack
+
+#### 3.5 Refactoring Systematically
+
+#### 3.6 Following the Flocking Rules
+
+#### 3.7 Converging on Abstractions
+
+#### 3.8 Summary
