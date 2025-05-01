@@ -44,20 +44,26 @@ export class Bottles {
   }
 
   quantity(num: number) {
-    if (num < 0) {
-      return '99'
-    } else if (num === 0) {
-      return 'no more'
-    } else {
-      return num.toString()
+    switch (true) {
+      case num < 0:
+        return '99'
+      case num === 0:
+        return 'no more'
+      case num === 6:
+        return '1'
+      default:
+        return num.toString()
     }
   }
 
   container(num: number) {
-    if (num === 1) {
-      return 'bottle'
-    } else {
-      return 'bottles'
+    switch (num) {
+      case 1:
+        return 'bottle'
+      case 6:
+        return 'six-pack'
+      default:
+        return 'bottles'
     }
   }
 }

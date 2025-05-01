@@ -357,9 +357,9 @@ Take one down and pass it around, 8 bottles of beer on the wall.
 Take one down and pass it around, 7 bottles of beer on the wall.
 
 7 bottles of beer on the wall, 7 bottles of beer.
-Take one down and pass it around, 6 bottles of beer on the wall.
+Take one down and pass it around, 1 six-pack of beer on the wall.
 
-6 bottles of beer on the wall, 6 bottles of beer.
+1 six-pack of beer on the wall, 1 six-pack of beer.
 Take one down and pass it around, 5 bottles of beer on the wall.
 
 5 bottles of beer on the wall, 5 bottles of beer.
@@ -381,5 +381,23 @@ No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall.
 `;
     expect(new Bottles().song()).toBe(expected);
+  });
+
+  test('verse 6', () => {
+    const expected =
+      '1 six-pack of beer on the wall, ' +
+      '1 six-pack of beer.\n' +
+      'Take one down and pass it around, ' +
+      '5 bottles of beer on the wall.\n';
+    expect(new Bottles().verse(6)).toBe(expected);
+  });
+
+  test('verse 7', () => {
+    const expected =
+      '7 bottles of beer on the wall, ' +
+      '7 bottles of beer.\n' +
+      'Take one down and pass it around, ' +
+      '1 six-pack of beer on the wall.\n';
+    expect(new Bottles().verse(7)).toBe(expected);
   });
 });

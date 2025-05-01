@@ -31,6 +31,17 @@
       - [3.6 Following the Flocking Rules](#36-following-the-flocking-rules)
       - [3.7 Converging on Abstractions](#37-converging-on-abstractions)
       - [3.8 Summary](#38-summary)
+    - [Chapter 04 - Practicing Horizontal Refactor](#chapter-04---practicing-horizontal-refactor)
+      - [4.1 Replacing Differences with Sameness](#41-replacing-differences-with-sameness)
+      - [4.2 Equivocating About Names](#42-equivocating-about-names)
+      - [4.3.Deriving Names from Responsibilities](#43deriving-names-from-responsibilities)
+      - [4.4 Choosing Meaningful Defaults](#44-choosing-meaningful-defaults)
+      - [4.5 Seeking Stable Landing Points](#45-seeking-stable-landing-points)
+      - [4.6 Obeying the Liskov Substitution Principle](#46-obeying-the-liskov-substitution-principle)
+      - [4.7 Taking Bigger Steps Back](#47-taking-bigger-steps-back)
+      - [4.8 Discovering Deeper Abstractions](#48-discovering-deeper-abstractions)
+      - [4.9 Depending on Abstractions](#49-depending-on-abstractions)
+      - [4.10 Summary](#410-summary)
 
 ## Chapters
 
@@ -234,9 +245,28 @@ Qualitative Code Quality Questions:
 
 ### Chapter 03 - Unearthing Concepts
 
+- understandability, straight-forwardness, and efficiency vs changeability
+- procedural programming ... limitations
+- unearth new concepts
+
 #### 3.1 Listening to Change
 
+- Code is expensive.
+- Writing it costs time or money
+- A new requirement tells you exactly how the code should change.
+- Code that needs to be changed must be changeable.
+- Story: "Users should see '1 six-pack' in place of '6 bottles'"
+- Conditionals breed, and now that this one has started reproducing, you must do something to stop it.
+
+- Conditionals are the bane of OO. (I've always felt this was the truth.)
+- Clarify requirements, and then write the minimum necessary code.
+- Now that someone has asked for a change, you have license to improve the code
+
 #### 3.2 Starting With the Open/Closed Principle
+
+- "Open for extension and closed for modification."
+- Code is open to a new requirement when you can add that requirement without changing existing code.
+- Michael Feathers and Robert Martin
 
 #### 3.3 Recognizing Code Smells
 
@@ -249,3 +279,25 @@ Qualitative Code Quality Questions:
 #### 3.7 Converging on Abstractions
 
 #### 3.8 Summary
+
+### Chapter 04 - Practicing Horizontal Refactor
+
+#### 4.1 Replacing Differences with Sameness
+
+#### 4.2 Equivocating About Names
+
+#### 4.3.Deriving Names from Responsibilities
+
+#### 4.4 Choosing Meaningful Defaults
+
+#### 4.5 Seeking Stable Landing Points
+
+#### 4.6 Obeying the Liskov Substitution Principle
+
+#### 4.7 Taking Bigger Steps Back
+
+#### 4.8 Discovering Deeper Abstractions
+
+#### 4.9 Depending on Abstractions
+
+#### 4.10 Summary
