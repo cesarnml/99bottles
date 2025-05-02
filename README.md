@@ -30,7 +30,6 @@
       - [3.5 Refactoring Systematically](#35-refactoring-systematically)
       - [3.6 Following the Flocking Rules](#36-following-the-flocking-rules)
       - [3.7 Converging on Abstractions](#37-converging-on-abstractions)
-      - [3.8 Summary](#38-summary)
     - [Chapter 04 - Practicing Horizontal Refactor](#chapter-04---practicing-horizontal-refactor)
       - [4.1 Replacing Differences with Sameness](#41-replacing-differences-with-sameness)
       - [4.2 Equivocating About Names](#42-equivocating-about-names)
@@ -277,8 +276,6 @@ Qualitative Code Quality Questions:
 #### 3.6 Following the Flocking Rules
 
 #### 3.7 Converging on Abstractions
-
-#### 3.8 Summary
 
 ### Chapter 04 - Practicing Horizontal Refactor
 
