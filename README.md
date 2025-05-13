@@ -30,6 +30,7 @@
       - [3.5 Refactoring Systematically](#35-refactoring-systematically)
       - [3.6 Following the Flocking Rules](#36-following-the-flocking-rules)
       - [3.7 Converging on Abstractions](#37-converging-on-abstractions)
+      - [3.8 Summary](#38-summary)
     - [Chapter 04 - Practicing Horizontal Refactor](#chapter-04---practicing-horizontal-refactor)
       - [4.1 Replacing Differences with Sameness](#41-replacing-differences-with-sameness)
       - [4.2 Equivocating About Names](#42-equivocating-about-names)
@@ -247,16 +248,16 @@ Qualitative Code Quality Questions:
 - understandability, straight-forwardness, and efficiency vs changeability
 - procedural programming ... limitations
 - unearth new concepts
+- In the real world, requirements _do_ change, and when that happens, the standards for code _rise_
 
 #### 3.1 Listening to Change
 
 - Code is expensive.
 - Writing it costs time or money
-- A new requirement tells you exactly how the code should change.
+- A new requirement tells you **exactly** how the code should change.
 - Code that needs to be changed must be changeable.
 - Story: "Users should see '1 six-pack' in place of '6 bottles'"
 - Conditionals breed, and now that this one has started reproducing, you must do something to stop it.
-
 - Conditionals are the bane of OO. (I've always felt this was the truth.)
 - Clarify requirements, and then write the minimum necessary code.
 - Now that someone has asked for a change, you have license to improve the code
@@ -265,17 +266,64 @@ Qualitative Code Quality Questions:
 
 - "Open for extension and closed for modification."
 - Code is open to a new requirement when you can add that requirement without changing existing code.
-- Michael Feathers and Robert Martin
+- Michael Feathers and Robert Martin popularized SOLID:
+  - Single Responsibility
+  - Open for Extension, Closed for Modification
+  - Liskov substitution
+  - Interface Segregation
+  - Dependency Inversion
 
 #### 3.3 Recognizing Code Smells
 
+- The trick to successfully improving code that contains many flaws is to isolate and correct them one at a time.
+- If you can identify a smell within code, you can look up the _curative refactoring_, and apply [it] to remove the flaw.
+- Fowler's Refactoring book is an excellent investment
+
 #### 3.4 Identifying the Best Point of Attack
+
+- The plan is to nibble away, one code smell at a time, in faith that the path to openness will be revealed.
 
 #### 3.5 Refactoring Systematically
 
+Fowler:
+
+- `Refactoring is the process of changing a software system in such a way that it does not alter the external behavior of the code yet improves its internal structure.`
+- Two Step Approach to New Requirements:
+  - 1. Refactor (safe refactoring relies upon tests)
+  - 2. TDD once code is Open to new requirement
+- Tests that make assertions about _how_ things are done, rather than _what_ actually happens, are the prime contributors to this predicament
+- If tests are flawed, then improve the tests first before beginning refactoring
+- Successful refactoring _lean_ on green.
+
 #### 3.6 Following the Flocking Rules
 
+`Flocking Rules`
+
+1. Select the things that are most alike.
+2. Find the smallest difference between them.
+3. Make the simplest change that will remove that difference.
+
+- If you take a big step and encounter an error, revert, and make a smaller one.
+- For now:
+  - 1. Change only one line at a time.
+  - 2. Run the tests after every change.
+  - 3. If the tests fail, undo and make a better change.
+
 #### 3.7 Converging on Abstractions
+
+- DRYing out sameness has _some_ value, but DRYing out difference is more meaningful.
+- "Gang of Four" => Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
+- Difference holds the key to understanding
+- The general rule is that the name of a thing should be one level of abstraction higher than the thing itself.
+  - Language of the "domain"
+- Naming things after domain concepts improves communication between you and the folks who pay the bills. Only good can come of this.
+- Making a slew of simultaneous changes is not refactoring - it's re*hack*toring
+- Real refactoring is comfortingly predictable, and saves brainpower for more through-provoking challenges.
+
+#### 3.8 Summary
+
+- Making existing code open to a new requirement often requires identifying and naming abstractions.
+- The `Flocking Rules` concentrate on turning differences into sameness, and thus are useful tools for unearthing abstractions.
 
 ### Chapter 04 - Practicing Horizontal Refactor
 
