@@ -34,14 +34,22 @@
     - [Chapter 04 - Practicing Horizontal Refactor](#chapter-04---practicing-horizontal-refactor)
       - [4.1 Replacing Differences with Sameness](#41-replacing-differences-with-sameness)
       - [4.2 Equivocating About Names](#42-equivocating-about-names)
-      - [4.3.Deriving Names from Responsibilities](#43deriving-names-from-responsibilities)
-      - [4.4 Choosing Meaningful Defaults](#44-choosing-meaningful-defaults)
-      - [4.5 Seeking Stable Landing Points](#45-seeking-stable-landing-points)
-      - [4.6 Obeying the Liskov Substitution Principle](#46-obeying-the-liskov-substitution-principle)
-      - [4.7 Taking Bigger Steps Back](#47-taking-bigger-steps-back)
-      - [4.8 Discovering Deeper Abstractions](#48-discovering-deeper-abstractions)
-      - [4.9 Depending on Abstractions](#49-depending-on-abstractions)
-      - [4.10 Summary](#410-summary)
+      - [4.3.Deriving Names from Responsibilities (2 pages)](#43deriving-names-from-responsibilities-2-pages)
+      - [4.4 Choosing Meaningful Defaults (4 pages)](#44-choosing-meaningful-defaults-4-pages)
+      - [4.5 Seeking Stable Landing Points (2 pages)](#45-seeking-stable-landing-points-2-pages)
+      - [4.6 Obeying the Liskov Substitution Principle (6 pages)](#46-obeying-the-liskov-substitution-principle-6-pages)
+      - [4.7 Taking Bigger Steps Back (4 pages)](#47-taking-bigger-steps-back-4-pages)
+      - [4.8 Discovering Deeper Abstractions (8 pages)](#48-discovering-deeper-abstractions-8-pages)
+      - [4.9 Depending on Abstractions (4 pages)](#49-depending-on-abstractions-4-pages)
+      - [4.10 Summary (1 page)](#410-summary-1-page)
+    - [Chapter 05 - Separating Responsibilities](#chapter-05---separating-responsibilities)
+      - [5.1 Selecting the Target Code Smell](#51-selecting-the-target-code-smell)
+      - [5.2 Extracting Classes](#52-extracting-classes)
+      - [5.3 Appreciating Immutability](#53-appreciating-immutability)
+      - [5.4 Assuming Fast Enough](#54-assuming-fast-enough)
+      - [5.5 Creating BottleNumbers](#55-creating-bottlenumbers)
+      - [5.6 Recognizing Liskov Violations](#56-recognizing-liskov-violations)
+      - [5.7 Summary](#57-summary)
 
 ## Chapters
 
@@ -327,22 +335,60 @@ Fowler:
 
 ### Chapter 04 - Practicing Horizontal Refactor
 
+- The Goal: A single, more abstract, template that produces every possible verse
+
 #### 4.1 Replacing Differences with Sameness
+
+- To remove conditionals, a step-up in abstraction is required
 
 #### 4.2 Equivocating About Names
 
-#### 4.3.Deriving Names from Responsibilities
+- Approaches to naming abstractions:
+  - 1. Take 5 minutes and pick a "good enough" name. Aim to improve it later
+  - 2. Use a placeholder name that will demand update later when you know more
+  - 3. Ask your local "naming-guru"
 
-#### 4.4 Choosing Meaningful Defaults
+#### 4.3.Deriving Names from Responsibilities (2 pages)
 
-#### 4.5 Seeking Stable Landing Points
+- When creating an abstraction, first describe its responsibility _as you understand it at this moment_, then choose a name which reflects that responsibility
 
-#### 4.6 Obeying the Liskov Substitution Principle
+#### 4.4 Choosing Meaningful Defaults (4 pages)
 
-#### 4.7 Taking Bigger Steps Back
+- In order to stick to 1-line refactorings (TDD), choose sensible defaults (which you clean up before finishing refactor implementation)
 
-#### 4.8 Discovering Deeper Abstractions
+#### 4.5 Seeking Stable Landing Points (2 pages)
 
-#### 4.9 Depending on Abstractions
+- The Flocking Rules lead to consistent code, and _consistency matters deeply._"
 
-#### 4.10 Summary
+#### 4.6 Obeying the Liskov Substitution Principle (6 pages)
+
+- Inconsistency in return types forces the sender of a message to know more than than it should.
+- Every piece of knowledge is a dependency.
+- Liskov prohibits you from doing anything that would force the sender of a message to test the returned result in order to know how to behave
+- Liskov violations force message senders to have knowledge of the various return types, and to either treat them differently, or convert them into something consistent.
+
+#### 4.7 Taking Bigger Steps Back (4 pages)
+
+- If you take bigger [refactoring] steps and the tests begin to fail, there's _something about the problem that you don't understand_. If this happens, don't push forward and refactor under red. Undo, return to green, and make incremental changes until you regain clarity.
+
+#### 4.8 Discovering Deeper Abstractions (8 pages)
+
+#### 4.9 Depending on Abstractions (4 pages)
+
+#### 4.10 Summary (1 page)
+
+### Chapter 05 - Separating Responsibilities
+
+#### 5.1 Selecting the Target Code Smell
+
+#### 5.2 Extracting Classes
+
+#### 5.3 Appreciating Immutability
+
+#### 5.4 Assuming Fast Enough
+
+#### 5.5 Creating BottleNumbers
+
+#### 5.6 Recognizing Liskov Violations
+
+#### 5.7 Summary

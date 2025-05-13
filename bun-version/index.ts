@@ -18,24 +18,33 @@ export class Bottles {
       .join('\n')
   }
 
-  verse(num: number) {
+  verse(number: number) {
     return (
-      `${capitalize(this.quantity(num))} ${this.container(num)} of beer on the wall, ${this.quantity(num)} ${this.container(num)} of beer.\n` +
-      `${this.response(num)}, ${this.quantity(num - 1)} ${this.container(num - 1)} of beer on the wall.\n`
+      `${capitalize(this.quantity(number))} ${this.container(number)} of beer on the wall, ${this.quantity(number)} ${this.container(number)} of beer.\n` +
+      `${this.action(number)}, ${this.quantity(this.successor(number))} ${this.container(this.successor(number))} of beer on the wall.\n`
     )
   }
 
-  response(num: number) {
-    switch (num) {
+  successor(number: number) {
+    switch (number) {
       case 0:
-        return 'Go to the store and buy some more'
+        return 99
       default:
-        return `Take ${this.pronoun(num)} down and pass it around`
+        return number - 1
     }
   }
 
-  pronoun(num: number) {
-    switch (num) {
+  action(number: number) {
+    switch (number) {
+      case 0:
+        return 'Go to the store and buy some more'
+      default:
+        return `Take ${this.pronoun(number)} down and pass it around`
+    }
+  }
+
+  pronoun(number: number) {
+    switch (number) {
       case 1:
         return 'it'
       default:
@@ -43,21 +52,19 @@ export class Bottles {
     }
   }
 
-  quantity(num: number) {
+  quantity(number: number) {
     switch (true) {
-      case num < 0:
-        return '99'
-      case num === 0:
+      case number === 0:
         return 'no more'
-      case num === 6:
+      case number === 6:
         return '1'
       default:
-        return num.toString()
+        return number.toString()
     }
   }
 
-  container(num: number) {
-    switch (num) {
+  container(number: number) {
+    switch (number) {
       case 1:
         return 'bottle'
       case 6:
