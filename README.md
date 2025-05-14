@@ -42,14 +42,22 @@
       - [4.8 Discovering Deeper Abstractions (8 pages)](#48-discovering-deeper-abstractions-8-pages)
       - [4.9 Depending on Abstractions (4 pages)](#49-depending-on-abstractions-4-pages)
       - [4.10 Summary (1 page)](#410-summary-1-page)
-    - [Chapter 05 - Separating Responsibilities](#chapter-05---separating-responsibilities)
-      - [5.1 Selecting the Target Code Smell](#51-selecting-the-target-code-smell)
-      - [5.2 Extracting Classes](#52-extracting-classes)
-      - [5.3 Appreciating Immutability](#53-appreciating-immutability)
-      - [5.4 Assuming Fast Enough](#54-assuming-fast-enough)
-      - [5.5 Creating BottleNumbers](#55-creating-bottlenumbers)
-      - [5.6 Recognizing Liskov Violations](#56-recognizing-liskov-violations)
-      - [5.7 Summary](#57-summary)
+    - [Chapter 05 - Separating Responsibilities (41 pages)](#chapter-05---separating-responsibilities-41-pages)
+      - [5.1 Selecting the Target Code Smell (11 pages)](#51-selecting-the-target-code-smell-11-pages)
+      - [5.2 Extracting Classes (16 pages)](#52-extracting-classes-16-pages)
+      - [5.3 Appreciating Immutability (2 pages)](#53-appreciating-immutability-2-pages)
+      - [5.4 Assuming Fast Enough (3 pages)](#54-assuming-fast-enough-3-pages)
+      - [5.5 Creating BottleNumbers (4 pages)](#55-creating-bottlenumbers-4-pages)
+      - [5.6 Recognizing Liskov Violations (5 pages)](#56-recognizing-liskov-violations-5-pages)
+      - [5.7 Summary (1 page)](#57-summary-1-page)
+    - [Chapter 06 - Achieving Openness (40 pages)](#chapter-06---achieving-openness-40-pages)
+      - [6.1 Consolidating Data Clumps (4 pages)](#61-consolidating-data-clumps-4-pages)
+      - [6.2 Making Sense of Conditionals (4 pages)](#62-making-sense-of-conditionals-4-pages)
+      - [6.3 Replacing Conditionals with Polymorphism (14 pages)](#63-replacing-conditionals-with-polymorphism-14-pages)
+      - [6.4 Transitioning Between Types (11 pages)](#64-transitioning-between-types-11-pages)
+      - [6.5 Making the Easy Change (4 pages)](#65-making-the-easy-change-4-pages)
+      - [6.6 Defending the Domain (2 pages)](#66-defending-the-domain-2-pages)
+      - [6.7 Summary (1 page)](#67-summary-1-page)
 
 ## Chapters
 
@@ -373,22 +381,48 @@ Fowler:
 
 #### 4.8 Discovering Deeper Abstractions (8 pages)
 
+- [often] the underlying concept is not immediately obvious ... unfortunately this is a constant of programming life.
+-
+
 #### 4.9 Depending on Abstractions (4 pages)
+
+- Abstractions are beneficial in many ways.
+  - 1. Consolidate code into a single place so that it can be changed with ease
+  - 2. They _name_ the code chuck ... name an _idea_ your code relies on
+  - 3. To extract most of the benefit the abstraction must be referenced everywhere it applies
 
 #### 4.10 Summary (1 page)
 
-### Chapter 05 - Separating Responsibilities
+- Stick to the plan (Flocking Rules) and have faith that the correct abstraction will slowly emerge
 
-#### 5.1 Selecting the Target Code Smell
+### Chapter 05 - Separating Responsibilities (41 pages)
 
-#### 5.2 Extracting Classes
+#### 5.1 Selecting the Target Code Smell (11 pages)
 
-#### 5.3 Appreciating Immutability
+#### 5.2 Extracting Classes (16 pages)
 
-#### 5.4 Assuming Fast Enough
+#### 5.3 Appreciating Immutability (2 pages)
 
-#### 5.5 Creating BottleNumbers
+#### 5.4 Assuming Fast Enough (3 pages)
 
-#### 5.6 Recognizing Liskov Violations
+#### 5.5 Creating BottleNumbers (4 pages)
 
-#### 5.7 Summary
+#### 5.6 Recognizing Liskov Violations (5 pages)
+
+#### 5.7 Summary (1 page)
+
+### Chapter 06 - Achieving Openness (40 pages)
+
+#### 6.1 Consolidating Data Clumps (4 pages)
+
+#### 6.2 Making Sense of Conditionals (4 pages)
+
+#### 6.3 Replacing Conditionals with Polymorphism (14 pages)
+
+#### 6.4 Transitioning Between Types (11 pages)
+
+#### 6.5 Making the Easy Change (4 pages)
+
+#### 6.6 Defending the Domain (2 pages)
+
+#### 6.7 Summary (1 page)
