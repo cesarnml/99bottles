@@ -413,8 +413,22 @@ Fowler:
   - Is the same argument name usage mean the same thing?
   - If you were to break up a big class into two classes where is the dividing line.
 - Eureka: verse `number` vs bottle `number` (container `number`)
+- Superfluous difference raises the cost of reading code, and increases the difficulty of future refactorings
+- An OO mindset is deeply suspicious of conditionals!
+- There is a _big difference_ between a conditional that selects the correct object and one that supplies behavior.
+  - The first is acceptable and generally unavoidable.
+  - The second suggest that you are missing objects in your domain.
+- **Code is striving for ignorance, and preserving ignorance requires minimizing dependencies.**
 
 #### 5.2 Extracting Classes (16 pages)
+
+- _Primitive Obsession_:
+  - When built-in language primitives are used to represent a concept in problem domain and are incorrectly used to supply behavior
+  - Fix with _Extract Class_
+  - It's easy to imagine creating objects that stand in for things, but the power of OO is that it lets you model ideas
+  - Transforming concepts into discrete classes separates responsibilities and makes the overall application easier to understand, test, and change.
+  - "Name things at one higher level of abstraction" rule applies more to methods than to classes
+    - "You should name methods after what they _mean_, classes can be named after what they _are_."
 
 #### 5.3 Appreciating Immutability (2 pages)
 
