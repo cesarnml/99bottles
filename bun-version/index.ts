@@ -20,31 +20,39 @@ export class Bottles {
 
   verse(number: number) {
     return (
-      `${capitalize(this.quantity(number))} ${this.container(number)} of beer on the wall, ${this.quantity(number)} ${this.container(number)} of beer.\n` +
-      `${this.action(number)}, ${this.quantity(this.successor(number))} ${this.container(this.successor(number))} of beer on the wall.\n`
+      `${capitalize(new BottleNumber(number).quantity())} ${new BottleNumber(number).container()} of beer on the wall, ${new BottleNumber(number).quantity()} ${new BottleNumber(number).container()} of beer.\n` +
+      `${new BottleNumber(number).action()}, ${new BottleNumber(new BottleNumber(number).successor()).quantity()} ${new BottleNumber(new BottleNumber(number).successor()).container()} of beer on the wall.\n`
     )
   }
+}
 
-  successor(number: number) {
-    switch (number) {
+class BottleNumber {
+  number: number
+
+  constructor(number: number) {
+    this.number = number
+  }
+
+  successor() {
+    switch (this.number) {
       case 0:
         return 99
       default:
-        return number - 1
+        return this.number - 1
     }
   }
 
-  action(number: number) {
-    switch (number) {
+  action() {
+    switch (this.number) {
       case 0:
         return 'Go to the store and buy some more'
       default:
-        return `Take ${this.pronoun(number)} down and pass it around`
+        return `Take ${this.pronoun()} down and pass it around`
     }
   }
 
-  pronoun(number: number) {
-    switch (number) {
+  pronoun() {
+    switch (this.number) {
       case 1:
         return 'it'
       default:
@@ -52,19 +60,19 @@ export class Bottles {
     }
   }
 
-  quantity(number: number) {
-    switch (true) {
-      case number === 0:
+  quantity() {
+    switch (this.number) {
+      case 0:
         return 'no more'
-      case number === 6:
+      case 6:
         return '1'
       default:
-        return number.toString()
+        return this.number.toString()
     }
   }
 
-  container(number: number) {
-    switch (number) {
+  container() {
+    switch (this.number) {
       case 1:
         return 'bottle'
       case 6:

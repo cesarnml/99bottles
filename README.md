@@ -397,7 +397,22 @@ Fowler:
 
 ### Chapter 05 - Separating Responsibilities (41 pages)
 
+- This chapter explores what it means to:
+  - Model abstractions
+  - Rely on messages
+  - The consequences of mutation
+  - Perils of premature performance optimization
+
 #### 5.1 Selecting the Target Code Smell (11 pages)
+
+- Code should be open for extension and closed for modification
+- One way to get better at identifying smells is to practice describing the characteristics of code.
+- Questions to Ask when searching for `code smells`
+  - Do any methods have the same shape.
+  - Do any methods take the same argument name.
+  - Is the same argument name usage mean the same thing?
+  - If you were to break up a big class into two classes where is the dividing line.
+- Eureka: verse `number` vs bottle `number` (container `number`)
 
 #### 5.2 Extracting Classes (16 pages)
 
