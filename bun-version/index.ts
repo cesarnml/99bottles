@@ -7,6 +7,15 @@ const highToLow = (upper: number, lower: number) => {
     .map((_, i) => upper - i)
 }
 
+type BottleNumberType = {
+  number: number
+  successor: () => number
+  action: () => string
+  pronoun: () => string
+  quantity: () => string
+  container: () => string
+}
+
 export class Bottles {
   song() {
     return this.verses(99, 0)
@@ -19,9 +28,12 @@ export class Bottles {
   }
 
   verse(number: number) {
+    const bottleNumber = new BottleNumber(number)
+    const nextBottleNumber = new BottleNumber(bottleNumber.successor())
+
     return (
-      `${capitalize(new BottleNumber(number).quantity())} ${new BottleNumber(number).container()} of beer on the wall, ${new BottleNumber(number).quantity()} ${new BottleNumber(number).container()} of beer.\n` +
-      `${new BottleNumber(number).action()}, ${new BottleNumber(new BottleNumber(number).successor()).quantity()} ${new BottleNumber(new BottleNumber(number).successor()).container()} of beer on the wall.\n`
+      `${capitalize(bottleNumber.quantity())} ${bottleNumber.container()} of beer on the wall, ${bottleNumber.quantity()} ${bottleNumber.container()} of beer.\n` +
+      `${bottleNumber.action()}, ${nextBottleNumber.quantity()} ${nextBottleNumber.container()} of beer on the wall.\n`
     )
   }
 }

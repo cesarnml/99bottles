@@ -449,11 +449,35 @@ Fowler:
 
 #### 5.4 Assuming Fast Enough (3 pages)
 
+- Premature optimization is the root of all evil.
+
 #### 5.5 Creating BottleNumbers (4 pages)
+
+- The first solution to any problem should avoid caching, use immutable objects, and _treat object creation as free_.
 
 #### 5.6 Recognizing Liskov Violations (5 pages)
 
+- You have every right to expect any method named `successor` to return an object that implements the same API as the receiver.
+- Liskov Substitution Principle (LSP) states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+
+```js
+// Example of Liskov Substitution Principle violation
+class BottleNumber {
+  constructor(number) {
+    this.number = number;
+  }
+
+  successor() {
+    return this.number + 1; // Returns a number, not a BottleNumber
+  }
+}
+const bottleNumber = new BottleNumber(number);
+const nextBottleNumber = new BottleNumber(bottleNumber.successor());
+```
+
 #### 5.7 Summary (1 page)
+
+- It's possible that your faith is being tested. (lol)
 
 ### Chapter 06 - Achieving Openness (40 pages)
 
