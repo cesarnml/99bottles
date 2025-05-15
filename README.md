@@ -429,8 +429,23 @@ Fowler:
   - Transforming concepts into discrete classes separates responsibilities and makes the overall application easier to understand, test, and change.
   - "Name things at one higher level of abstraction" rule applies more to methods than to classes
     - "You should name methods after what they _mean_, classes can be named after what they _are_."
+- "The point of the _Primitive Obsession/Extract Class_ refactoring is to create a smarter object that can be used to model the concept in the domain. This smarter object, by definition, knows both the value of the primitive and its associated behavior."
+- To convince yourself that you haven't missed any other senders, temporarily add a guard clause at the beginning of the method that throws an exception if the method is called with a value that doesn't make sense.
+  ```js
+  if (arguments.length !== 1) {
+    throw new Error('This method only accepts one argument');
+  }
+  ```
+  - This will force you to look at all the places that call the method, and if you find any that don't make sense, you can refactor them to use the new class.
+  - Hint: `arguments` object can be useful for this purpose.
 
 #### 5.3 Appreciating Immutability (2 pages)
+
+- To _mutate_ is to change. _State_ is the current condition of an object. A _variable_ is "that which varies".
+- "The real world is pervaded by this idea - what exists, will change."
+- Most object-oriented programmers write code that both expects and relies upon object mutation. Objects are constructed, used, mutated, and then used again.
+- It can be disorientating to imagine reality as constructed by the functional programmer, where objects are created, used, and then discarded -- and never changed.
+- Immutability is a powerful tool for managing complexity, and it can help you write code that is easier to reason about, test, and maintain. Also immutable objects are inherently thread-safe, which makes them a good choice for concurrent programming.
 
 #### 5.4 Assuming Fast Enough (3 pages)
 
