@@ -58,6 +58,14 @@
       - [6.5 Making the Easy Change (4 pages)](#65-making-the-easy-change-4-pages)
       - [6.6 Defending the Domain (2 pages)](#66-defending-the-domain-2-pages)
       - [6.7 Summary (1 page)](#67-summary-1-page)
+    - [Chapter 07 - Manufacturing Intelligence (14 pages)](#chapter-07---manufacturing-intelligence-14-pages)
+      - [7.1 Contrasting the Concrete Factory with Shameless Green (3 pages)](#71-contrasting-the-concrete-factory-with-shameless-green-3-pages)
+      - [7.2 Fathoming Factories (2 pages)](#72-fathoming-factories-2-pages)
+      - [7.3 Opening the Factory (2 pages)](#73-opening-the-factory-2-pages)
+      - [7.4 Supporting Arbitrary Class Names (4 pages)](#74-supporting-arbitrary-class-names-4-pages)
+      - [7.5 Dispersing The Choosing Logic (3 pages)](#75-dispersing-the-choosing-logic-3-pages)
+      - [7.6 Self-registering Candidates (4 pages)](#76-self-registering-candidates-4-pages)
+      - [7.7 Summary (1 page)](#77-summary-1-page)
 
 ## Chapters
 
@@ -481,21 +489,60 @@ const nextBottleNumber = new BottleNumber(bottleNumber.successor());
 
 ### Chapter 06 - Achieving Openness (40 pages)
 
+- The increasing isolation of the concepts that need to vary is an indication that the code is moving in the right direction.
+
+#### 6.1 Consolidating Data Clumps (4 pages)
+
 - _Data clump_ is official about _data_, and is defined as the situation in which several data fields routinely occur together in the same places, but are not encapsulated in a single object.
 - Having a clump of data usually means you are missing a concept in your domain model.
 - Full-grown _Data Clumps_ are usually removed by extracting a class that encapsulates the data and its associated behavior.
 - Programmers add blank lines to signify changes of topic. The presence of multiple topics suggests the existence of multiple responsibilities, which make code harder to understand when reading, and easier to harm when changing.
 
-#### 6.1 Consolidating Data Clumps (4 pages)
-
 #### 6.2 Making Sense of Conditionals (4 pages)
+
+- Fowler offers several curative refactoring recipes. The two main contenders are _Replace Conditional with Polymorphism_ (uses inheritance) and _Replace Conditional with Strategy_. (uses composition)
+- "Skilled programmers are good at picking what best to do next. For many problems, they can immediately identify the code smell that will be most fruitful to resolve. They have excellent judgement. Their decision-making process looks intuitive and effortless, but also inimitable, which makes their actions simultaneously inspiring and disheartening. It's as if they. have a secret understanding of the underlying patterns of code, one not granted to merer mortals."
+- Practice _builds_ intuition. Do it enough, and you'll seem magical too!
 
 #### 6.3 Replacing Conditionals with Polymorphism (14 pages)
 
+- In OO, polymorphism is the ability of different classes to be treated as instances of the same class through a common interface.
+- In OO, polymorphism refers to the idea of having many different kinds of objects (classes) that respond to the same message. _Senders_ of the message needn't care with which of the message needn't care with which of the possible receivers they are communicating. Polymorphism allows senders to depend on the _message_ while remaining ignorant of the _type_, or class, of the receiver. Senders don't care what receivers are; instead, they depend on what receivers do.
+- If introducing polymorphism improved the code, this new version ought to tell an accurate and easily understood story about the domain.
+
 #### 6.4 Transitioning Between Types (11 pages)
+
+- Liskov violations are insidious, and over time cause increasing harm.
+- Adding type information defeats polymorphism, and forces you to check the type of the receiver before sending this message. This vastly complicates the code, and makes it harder to understand.
+- Requiring a factory to check the type of its input argument is anathema to OO.
+- Correcting the Liskov violation is important because object-oriented programming, especially in dynamically-typed languages like JavaScript, relies on _explicit_ trust in the _implicit_ contract between the sender and receiver of a message.
 
 #### 6.5 Making the Easy Change (4 pages)
 
+- "Make the change easy (warning: this may be hard), then make the easy change."
+
 #### 6.6 Defending the Domain (2 pages)
 
+- Less code doesn't always mean better code.
+- Clever shortcuts are a false economy. Invest in code that tells the truth.
+
 #### 6.7 Summary (1 page)
+
+- The goal of this chapter is to make the code open to change by removing Liskov violations and replacing conditionals with polymorphism.
+- There's a whole world of different styles of factories waiting to be explored.
+
+### Chapter 07 - Manufacturing Intelligence (14 pages)
+
+#### 7.1 Contrasting the Concrete Factory with Shameless Green (3 pages)
+
+#### 7.2 Fathoming Factories (2 pages)
+
+#### 7.3 Opening the Factory (2 pages)
+
+#### 7.4 Supporting Arbitrary Class Names (4 pages)
+
+#### 7.5 Dispersing The Choosing Logic (3 pages)
+
+#### 7.6 Self-registering Candidates (4 pages)
+
+#### 7.7 Summary (1 page)

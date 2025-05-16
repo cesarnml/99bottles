@@ -19,8 +19,8 @@ export class Bottles {
   }
 
   verse(number: number) {
-    const bottleNumber = bottleNumberFactory(number)
-    const nextBottleNumber = bottleNumberFactory(bottleNumber.successor())
+    const bottleNumber = BottleNumber.for(number)
+    const nextBottleNumber = bottleNumber.successor()
 
     return (
       capitalize(
@@ -35,6 +35,26 @@ class BottleNumber {
 
   constructor(number: number) {
     this.number = number
+  }
+
+  static for(number: number) {
+    let bottleNumberClass: typeof BottleNumber
+
+    switch (number) {
+      case 0:
+        bottleNumberClass = BottleNumber0
+        break
+      case 1:
+        bottleNumberClass = BottleNumber1
+        break
+      case 6:
+        bottleNumberClass = BottleNumber6
+        break
+      default:
+        bottleNumberClass = BottleNumber
+    }
+
+    return new bottleNumberClass(number)
   }
 
   toString() {
@@ -58,15 +78,11 @@ class BottleNumber {
   }
 
   successor() {
-    return this.number - 1
+    return BottleNumber.for(this.number - 1)
   }
 }
 
 class BottleNumber0 extends BottleNumber {
-  constructor() {
-    super(0)
-  }
-
   quantity() {
     return 'no more'
   }
@@ -75,16 +91,12 @@ class BottleNumber0 extends BottleNumber {
     return 'Go to the store and buy some more'
   }
 
-  successor(): number {
-    return 99
+  successor() {
+    return BottleNumber.for(99)
   }
 }
 
 class BottleNumber1 extends BottleNumber {
-  constructor() {
-    super(1)
-  }
-
   container(): string {
     return 'bottle'
   }
@@ -93,34 +105,17 @@ class BottleNumber1 extends BottleNumber {
     return 'it'
   }
 
-  successor(): number {
-    return 0
+  successor() {
+    return BottleNumber.for(0)
   }
 }
 
 class BottleNumber6 extends BottleNumber {
-  constructor() {
-    super(6)
-  }
-
   quantity() {
     return '1'
   }
 
   container(): string {
     return 'six-pack'
-  }
-}
-
-function bottleNumberFactory(number: number): BottleNumber {
-  switch (number) {
-    case 0:
-      return new BottleNumber0()
-    case 1:
-      return new BottleNumber1()
-    case 6:
-      return new BottleNumber6()
-    default:
-      return new BottleNumber(number)
   }
 }
