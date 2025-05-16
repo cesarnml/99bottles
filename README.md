@@ -66,6 +66,17 @@
       - [7.5 Dispersing The Choosing Logic (3 pages)](#75-dispersing-the-choosing-logic-3-pages)
       - [7.6 Self-registering Candidates (4 pages)](#76-self-registering-candidates-4-pages)
       - [7.7 Summary (1 page)](#77-summary-1-page)
+    - [Chapter 08 - Developing a Programming Aesthetics (38 pages)](#chapter-08---developing-a-programming-aesthetics-38-pages)
+      - [8.1 Appreciating the Mechanical Process (5 pages)](#81-appreciating-the-mechanical-process-5-pages)
+      - [8.2 Clarifying Responsibilities with Pseudocode (2 pages)](#82-clarifying-responsibilities-with-pseudocode-2-pages)
+      - [8.3 Extracting the Verse (3 pages)](#83-extracting-the-verse-3-pages)
+      - [8.4 Coding by Wishful Thinking (3 pages)](#84-coding-by-wishful-thinking-3-pages)
+      - [8.5 Inverting Dependencies (7 pages)](#85-inverting-dependencies-7-pages)
+      - [8.6 Obeying the Law of Demeter (8 pages)](#86-obeying-the-law-of-demeter-8-pages)
+      - [8.7 Identifying What The Verse Method Wants (5 pages)](#87-identifying-what-the-verse-method-wants-5-pages)
+      - [8.8 Pushing Object Creation to the Edge (7 pages)](#88-pushing-object-creation-to-the-edge-7-pages)
+      - [8.9 Summary (2 pages)](#89-summary-2-pages)
+    - [Chapter 09 - Reaping the Benefits of Design (41 pages)](#chapter-09---reaping-the-benefits-of-design-41-pages)
 
 ## Chapters
 
@@ -546,3 +557,25 @@ const nextBottleNumber = new BottleNumber(bottleNumber.successor());
 #### 7.6 Self-registering Candidates (4 pages)
 
 #### 7.7 Summary (1 page)
+
+### Chapter 08 - Developing a Programming Aesthetics (38 pages)
+
+#### 8.1 Appreciating the Mechanical Process (5 pages)
+
+#### 8.2 Clarifying Responsibilities with Pseudocode (2 pages)
+
+#### 8.3 Extracting the Verse (3 pages)
+
+#### 8.4 Coding by Wishful Thinking (3 pages)
+
+#### 8.5 Inverting Dependencies (7 pages)
+
+#### 8.6 Obeying the Law of Demeter (8 pages)
+
+#### 8.7 Identifying What The Verse Method Wants (5 pages)
+
+#### 8.8 Pushing Object Creation to the Edge (7 pages)
+
+#### 8.9 Summary (2 pages)
+
+### Chapter 09 - Reaping the Benefits of Design (41 pages)
