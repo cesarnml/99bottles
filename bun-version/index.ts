@@ -7,15 +7,6 @@ const highToLow = (upper: number, lower: number) => {
     .map((_, i) => upper - i)
 }
 
-type BottleNumberType = {
-  number: number
-  successor: () => number
-  action: () => string
-  pronoun: () => string
-  quantity: () => string
-  container: () => string
-}
-
 export class Bottles {
   song() {
     return this.verses(99, 0)
@@ -28,12 +19,13 @@ export class Bottles {
   }
 
   verse(number: number) {
-    const bottleNumber = new BottleNumber(number)
-    const nextBottleNumber = new BottleNumber(bottleNumber.successor())
+    const bottleNumber = bottleNumberFactory(number)
+    const nextBottleNumber = bottleNumberFactory(bottleNumber.successor())
 
     return (
-      `${capitalize(bottleNumber.quantity())} ${bottleNumber.container()} of beer on the wall, ${bottleNumber.quantity()} ${bottleNumber.container()} of beer.\n` +
-      `${bottleNumber.action()}, ${nextBottleNumber.quantity()} ${nextBottleNumber.container()} of beer on the wall.\n`
+      capitalize(
+        `${bottleNumber} of beer on the wall, ${bottleNumber} of beer.\n`
+      ) + `${bottleNumber.action()}, ${nextBottleNumber} of beer on the wall.\n`
     )
   }
 }
@@ -45,52 +37,90 @@ class BottleNumber {
     this.number = number
   }
 
-  successor() {
-    switch (this.number) {
-      case 0:
-        return 99
-      default:
-        return this.number - 1
-    }
-  }
-
-  action() {
-    switch (this.number) {
-      case 0:
-        return 'Go to the store and buy some more'
-      default:
-        return `Take ${this.pronoun()} down and pass it around`
-    }
-  }
-
-  pronoun() {
-    switch (this.number) {
-      case 1:
-        return 'it'
-      default:
-        return 'one'
-    }
+  toString() {
+    return `${this.quantity()} ${this.container()}`
   }
 
   quantity() {
-    switch (this.number) {
-      case 0:
-        return 'no more'
-      case 6:
-        return '1'
-      default:
-        return this.number.toString()
-    }
+    return this.number.toString()
   }
 
-  container() {
-    switch (this.number) {
-      case 1:
-        return 'bottle'
-      case 6:
-        return 'six-pack'
-      default:
-        return 'bottles'
-    }
+  container(): string {
+    return 'bottles'
+  }
+
+  action() {
+    return `Take ${this.pronoun()} down and pass it around`
+  }
+
+  pronoun() {
+    return 'one'
+  }
+
+  successor() {
+    return this.number - 1
+  }
+}
+
+class BottleNumber0 extends BottleNumber {
+  constructor() {
+    super(0)
+  }
+
+  quantity() {
+    return 'no more'
+  }
+
+  action(): string {
+    return 'Go to the store and buy some more'
+  }
+
+  successor(): number {
+    return 99
+  }
+}
+
+class BottleNumber1 extends BottleNumber {
+  constructor() {
+    super(1)
+  }
+
+  container(): string {
+    return 'bottle'
+  }
+
+  pronoun(): 'it' | 'one' {
+    return 'it'
+  }
+
+  successor(): number {
+    return 0
+  }
+}
+
+class BottleNumber6 extends BottleNumber {
+  constructor() {
+    super(6)
+  }
+
+  quantity() {
+    return '1'
+  }
+
+  container(): string {
+    return 'six-pack'
+  }
+}
+
+function bottleNumberFactory(number: number): BottleNumber {
+  switch (number) {
+    case 0:
+      return new BottleNumber0()
+    case 1:
+      return new BottleNumber1()
+    case 6:
+      return new BottleNumber6()
+    default:
+      return new BottleNumber(number)
   }
 }

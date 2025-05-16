@@ -481,6 +481,11 @@ const nextBottleNumber = new BottleNumber(bottleNumber.successor());
 
 ### Chapter 06 - Achieving Openness (40 pages)
 
+- _Data clump_ is official about _data_, and is defined as the situation in which several data fields routinely occur together in the same places, but are not encapsulated in a single object.
+- Having a clump of data usually means you are missing a concept in your domain model.
+- Full-grown _Data Clumps_ are usually removed by extracting a class that encapsulates the data and its associated behavior.
+- Programmers add blank lines to signify changes of topic. The presence of multiple topics suggests the existence of multiple responsibilities, which make code harder to understand when reading, and easier to harm when changing.
+
 #### 6.1 Consolidating Data Clumps (4 pages)
 
 #### 6.2 Making Sense of Conditionals (4 pages)

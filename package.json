@@ -10,10 +10,17 @@
   },
   "scripts": {
     "eslint": "eslint lib test",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/test/bottles.test.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/bun-version/"
+    ]
   },
   "babel": {
     "plugins": [
