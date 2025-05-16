@@ -77,6 +77,10 @@
       - [8.8 Pushing Object Creation to the Edge (7 pages)](#88-pushing-object-creation-to-the-edge-7-pages)
       - [8.9 Summary (2 pages)](#89-summary-2-pages)
     - [Chapter 09 - Reaping the Benefits of Design (41 pages)](#chapter-09---reaping-the-benefits-of-design-41-pages)
+      - [9.1 Choosing which Units to Test (7 pages)](#91-choosing-which-units-to-test-7-pages)
+      - [9.2 Reorganizing Tests (9 pages)](#92-reorganizing-tests-9-pages)
+      - [9.3 Seeking Context Independence (16 pages)](#93-seeking-context-independence-16-pages)
+      - [9.4 Communicating With the Future (10 pages)](#94-communicating-with-the-future-10-pages)
 
 ## Chapters
 
@@ -579,3 +583,11 @@ const nextBottleNumber = new BottleNumber(bottleNumber.successor());
 #### 8.9 Summary (2 pages)
 
 ### Chapter 09 - Reaping the Benefits of Design (41 pages)
+
+#### 9.1 Choosing which Units to Test (7 pages)
+
+#### 9.2 Reorganizing Tests (9 pages)
+
+#### 9.3 Seeking Context Independence (16 pages)
+
+#### 9.4 Communicating With the Future (10 pages)
