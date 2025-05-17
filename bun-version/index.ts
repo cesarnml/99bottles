@@ -31,6 +31,8 @@ export class Bottles {
 }
 
 class BottleNumber {
+  static registry: Array<typeof BottleNumber> = []
+
   number: number
 
   constructor(number: number) {
@@ -38,23 +40,19 @@ class BottleNumber {
   }
 
   static for(number: number) {
-    let bottleNumberClass: typeof BottleNumber
-
-    switch (number) {
-      case 0:
-        bottleNumberClass = BottleNumber0
-        break
-      case 1:
-        bottleNumberClass = BottleNumber1
-        break
-      case 6:
-        bottleNumberClass = BottleNumber6
-        break
-      default:
-        bottleNumberClass = BottleNumber
-    }
+    const bottleNumberClass = BottleNumber.registry.find(candidate =>
+      candidate.canHandle(number)
+    ) as typeof BottleNumber
 
     return new bottleNumberClass(number)
+  }
+
+  static register(candidate: typeof BottleNumber) {
+    BottleNumber.registry.unshift(candidate)
+  }
+
+  static canHandle(number: number) {
+    return true
   }
 
   toString() {
@@ -82,7 +80,13 @@ class BottleNumber {
   }
 }
 
+BottleNumber.registry = [BottleNumber]
+
 class BottleNumber0 extends BottleNumber {
+  static canHandle(number: number) {
+    return number === 0
+  }
+
   quantity() {
     return 'no more'
   }
@@ -96,7 +100,13 @@ class BottleNumber0 extends BottleNumber {
   }
 }
 
+BottleNumber.register(BottleNumber0)
+
 class BottleNumber1 extends BottleNumber {
+  static canHandle(number: number) {
+    return number === 1
+  }
+
   container(): string {
     return 'bottle'
   }
@@ -110,7 +120,13 @@ class BottleNumber1 extends BottleNumber {
   }
 }
 
+BottleNumber.register(BottleNumber1)
+
 class BottleNumber6 extends BottleNumber {
+  static canHandle(number: number) {
+    return number === 6
+  }
+
   quantity() {
     return '1'
   }
@@ -119,3 +135,5 @@ class BottleNumber6 extends BottleNumber {
     return 'six-pack'
   }
 }
+
+BottleNumber.register(BottleNumber6)

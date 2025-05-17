@@ -97,11 +97,11 @@ Notes from reading ["99 Bottles of OOP"](https://sandimetz.com/99bottles) by San
 - [x] ~~_Introduction_~~ [2025-04-21]
 - [x] ~~_Chapter 01 - Rediscovering Simplicity_~~ [2025-04-22]
 - [x] ~~_Chapter 02 - Test Driving Shameless Green_~~ [2025-04-28]
-- [x] ~~_Chapter 03 - Unearthing Concepts_~~ [2025-05-17]
-- [x] ~~_Chapter 04 - Practicing Horizontal Refactoring_~~ [2025-05-17]
-- [x] ~~_Chapter 05 - Separating Responsibilities_~~ [2025-05-17]
-- [x] ~~_Chapter 06 - Achieving Openness_~~ [2025-05-17]
-- [x] ~~_Chapter 07 - Manufacturing Intelligence_~~ [2025-05-17]
+- [x] ~~_Chapter 03 - Unearthing Concepts_~~ [2025-05-13]
+- [x] ~~_Chapter 04 - Practicing Horizontal Refactoring_~~ [2025-05-14]
+- [x] ~~_Chapter 05 - Separating Responsibilities_~~ [2025-05-15]
+- [x] ~~_Chapter 06 - Achieving Openness_~~ [2025-05-16]
+- [x] ~~_Chapter 07 - Manufacturing Intelligence_~~ [2025-05-16]
 - [ ] Chapter 08 - Developing a Programming Aesthetics
 - [ ] Chapter 09 - Reaping the Benefits of Design
 
