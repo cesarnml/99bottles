@@ -1,5 +1,14 @@
 # 99 Bottles of OOP Cheatsheet
 
+Notes from reading ["99 Bottles of OOP"](https://sandimetz.com/99bottles) by Sandi Metz, Katrina Owen, and TJ Stankus.
+
+**Key References:**
+
+- [99 Bottles of OOP](https://sandimetz.com/99bottles) - The main book
+- [Refactoring](https://martinfowler.com/books/refactoring.html) - Martin Fowler's guide to refactoring
+- [Design Patterns](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612) - The "Gang of Four" book
+- [SOLID Principles](https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf) - Uncle Bob's paper on SOLID design principles
+
 - [99 Bottles of OOP Cheatsheet](#99-bottles-of-oop-cheatsheet)
   - [Chapters](#chapters)
   - [Notes](#notes)
@@ -19,7 +28,7 @@
       - [2.7 Choosing Names](#27-choosing-names)
       - [2.8 Revealing Intentions](#28-revealing-intentions)
       - [2.9 Writing Cost-Effective Tests](#29-writing-cost-effective-tests)
-      - [2.10 Avoiding te Echo-Chamber](#210-avoiding-te-echo-chamber)
+      - [2.10 Avoiding the Echo-Chamber](#210-avoiding-the-echo-chamber)
       - [2.11 Considering Options](#211-considering-options)
       - [2.12 Summary](#212-summary)
     - [Chapter 03 - Unearthing Concepts](#chapter-03---unearthing-concepts)
@@ -88,15 +97,17 @@
 - [x] ~~_Introduction_~~ [2025-04-21]
 - [x] ~~_Chapter 01 - Rediscovering Simplicity_~~ [2025-04-22]
 - [x] ~~_Chapter 02 - Test Driving Shameless Green_~~ [2025-04-28]
-- [ ] Chapter 03 - Unearthing Concepts
-- [ ] Chapter 04 - Practicing Horizontal Refactoring
-- [ ] Chapter 05 - Separating Responsibilities
-- [ ] Chapter 06 - Achieving Openness
-- [ ] Chapter 07 - Manufacturing Intelligence
+- [x] ~~_Chapter 03 - Unearthing Concepts_~~ [2025-05-17]
+- [x] ~~_Chapter 04 - Practicing Horizontal Refactoring_~~ [2025-05-17]
+- [x] ~~_Chapter 05 - Separating Responsibilities_~~ [2025-05-17]
+- [x] ~~_Chapter 06 - Achieving Openness_~~ [2025-05-17]
+- [x] ~~_Chapter 07 - Manufacturing Intelligence_~~ [2025-05-17]
 - [ ] Chapter 08 - Developing a Programming Aesthetics
 - [ ] Chapter 09 - Reaping the Benefits of Design
 
 ## Notes
+
+---
 
 ### Preface
 
@@ -110,9 +121,13 @@
 
 > "While reading has value, doing has more."
 
+---
+
 ### Introduction
 
 > "Writing code is the _process_ of working your way to the next stable end point, not the end point itself. You don't know the answer in advance, but instead, you are seeking it"
+
+---
 
 ### Chapter 01 - Rediscovering Simplicity
 
@@ -126,11 +141,12 @@
   - 2. Refactoring. Ability to rearrange existing code without breaking it.
   - 3. OO. Deep understanding of the concepts behind OO programming and design
 
-- Confusing passage:
-  - > "Have you injected a dependency instead of hard-coding the class name of a collaborator? The receiver can now freely depend on new and previously unforeseen objects, but it must remain ignorant of their actual class."
-  - Something to do with `dependency injection` wrt to `collaborator class name` ...
-  - AI Explanation:
-    Instead of a class directly instantiating or referencing another class (hard-coding the collaborator), you "inject" the dependency—usually by passing it in as a parameter (to a constructor or method). This allows the class (the receiver) to work with any object that meets the expected interface, not just a specific class. The receiver doesn't need to know the actual class of the collaborator, making the code more flexible, testable, and open to extension.
+- Key Concept - Dependency Injection:
+
+  > "Have you injected a dependency instead of hard-coding the class name of a collaborator? The receiver can now freely depend on new and previously unforeseen objects, but it must remain ignorant of their actual class."
+
+  Explanation:
+  Instead of a class directly instantiating or referencing another class (hard-coding the collaborator), you "inject" the dependency—usually by passing it in as a parameter (to a constructor or method). This allows the class (the receiver) to work with any object that meets the expected interface, not just a specific class. The receiver doesn't need to know the actual class of the collaborator, making the code more flexible, testable, and open to extension.
 
 ```js
 // Instead of this (hard-coded):
@@ -161,11 +177,11 @@ constructor(logger) {
 
 - `calling` a method implies knowledge of implementation. `sending a message` suggest willful ignorance of receiver implementation details
 
-Qualitative Code Quality Questions:
+**Qualitative Code Quality Questions:**
 
-- 1. How difficult was it to write?
-- 2. How hard is it to understand?
-- 3. How expensive will it be to change?
+1. How difficult was it to write?
+2. How hard is it to understand?
+3. How expensive will it be to change?
 
 > "The past ("was it") is a memory, the future ("will it be") is imaginary, but the present ("is it") is true right now."
 
@@ -191,16 +207,19 @@ Qualitative Code Quality Questions:
 
 > "Any pile of code an be made to _work_; good code not only works, but is also simple, understandable, expressive and changeable."
 
-- Fact-Based Code Quality Metrics:
-  1. Source Lines of Code (SLOC or LOC)
-  2. Cyclomatic Complexity
-  3. Assignments, Branches, and Conditions (ABC) Metric
+**Fact-Based Code Quality Metrics:**
+
+1. Source Lines of Code (SLOC or LOC)
+2. Cyclomatic Complexity
+3. Assignments, Branches, and Conditions (ABC) Metric
 
 #### 1.3 Summary
 
 > "It doesn't dispute that DRY is good, rather, it believes that it is cheaper to manage temporary duplication than to recover from incorrect abstractions."
 
 > "Code that's good enough when nothing ever changes may _not_ be good enough when things do."
+
+---
 
 ### Chapter 02 - Test Driving Shameless Green
 
@@ -243,10 +262,10 @@ Qualitative Code Quality Questions:
 
 > "Code longs to be as ignorant as possible."
 
-- 3 Wars to Make Test Pass:
+- 3 Ways to Make Tests Pass:
   - 1. Fake It ("Til You Make It")
   - 2. Obvious Implementation
-  - 3. Triangulate - _"conservatively drive abstraction with tests"_ - Write multiple broken test, then fix all of them with one bit of code
+  - 3. Triangulation - _"conservatively drive abstraction with tests"_ - Write multiple failing tests, then fix all of them with one code change
 
 > "Developing the habit of writing just enough code to pass the tests forces you to write better tests. It also provides an antidote for the hubris of thinking you know that's right when you're actually wrong."
 
@@ -262,9 +281,9 @@ Qualitative Code Quality Questions:
 
 > "The first step in learning the art of testing is to understand how to write tests that confirm _what_ your code does without any knowledge of _how_ your code does it."
 
-#### 2.10 Avoiding te Echo-Chamber
+#### 2.10 Avoiding the Echo-Chamber
 
-- Clarity over DRY in test
+- Favor clarity over DRY in tests
 
 #### 2.11 Considering Options
 
@@ -281,6 +300,8 @@ Qualitative Code Quality Questions:
 > "Tests ... make it safe and easy to refactor if decoupled from code."
 
 > "Good tests not only tell a story, but they lead, step by step, to a well-organized solution."
+
+---
 
 ### Chapter 03 - Unearthing Concepts
 
@@ -316,7 +337,7 @@ Qualitative Code Quality Questions:
 
 - The trick to successfully improving code that contains many flaws is to isolate and correct them one at a time.
 - If you can identify a smell within code, you can look up the _curative refactoring_, and apply [it] to remove the flaw.
-- Fowler's Refactoring book is an excellent investment
+- [Martin Fowler's "Refactoring" book](https://martinfowler.com/books/refactoring.html) is an excellent investment
 
 #### 3.4 Identifying the Best Point of Attack
 
@@ -324,9 +345,10 @@ Qualitative Code Quality Questions:
 
 #### 3.5 Refactoring Systematically
 
-Fowler:
+According to Martin Fowler:
 
-- `Refactoring is the process of changing a software system in such a way that it does not alter the external behavior of the code yet improves its internal structure.`
+> "Refactoring is the process of changing a software system in such a way that it does not alter the external behavior of the code yet improves its internal structure."
+
 - Two Step Approach to New Requirements:
   - 1. Refactor (safe refactoring relies upon tests)
   - 2. TDD once code is Open to new requirement
@@ -351,7 +373,7 @@ Fowler:
 #### 3.7 Converging on Abstractions
 
 - DRYing out sameness has _some_ value, but DRYing out difference is more meaningful.
-- "Gang of Four" => Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides
+- ["Gang of Four" Design Patterns book](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612) by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides - A foundational text on design patterns
 - Difference holds the key to understanding
 - The general rule is that the name of a thing should be one level of abstraction higher than the thing itself.
   - Language of the "domain"
@@ -363,6 +385,8 @@ Fowler:
 
 - Making existing code open to a new requirement often requires identifying and naming abstractions.
 - The `Flocking Rules` concentrate on turning differences into sameness, and thus are useful tools for unearthing abstractions.
+
+---
 
 ### Chapter 04 - Practicing Horizontal Refactor
 
@@ -404,8 +428,8 @@ Fowler:
 
 #### 4.8 Discovering Deeper Abstractions (8 pages)
 
-- [often] the underlying concept is not immediately obvious ... unfortunately this is a constant of programming life.
--
+- Often the underlying concept is not immediately obvious - this is unfortunately a constant of programming life
+- The discovery process requires patience and systematic exploration of the code
 
 #### 4.9 Depending on Abstractions (4 pages)
 
@@ -417,6 +441,8 @@ Fowler:
 #### 4.10 Summary (1 page)
 
 - Stick to the plan (Flocking Rules) and have faith that the correct abstraction will slowly emerge
+
+---
 
 ### Chapter 05 - Separating Responsibilities (41 pages)
 
@@ -502,6 +528,8 @@ const nextBottleNumber = new BottleNumber(bottleNumber.successor());
 
 - It's possible that your faith is being tested. (lol)
 
+---
+
 ### Chapter 06 - Achieving Openness (40 pages)
 
 - The increasing isolation of the concepts that need to vary is an indication that the code is moving in the right direction.
@@ -516,7 +544,8 @@ const nextBottleNumber = new BottleNumber(bottleNumber.successor());
 #### 6.2 Making Sense of Conditionals (4 pages)
 
 - Fowler offers several curative refactoring recipes. The two main contenders are _Replace Conditional with Polymorphism_ (uses inheritance) and _Replace Conditional with Strategy_. (uses composition)
-- "Skilled programmers are good at picking what best to do next. For many problems, they can immediately identify the code smell that will be most fruitful to resolve. They have excellent judgement. Their decision-making process looks intuitive and effortless, but also inimitable, which makes their actions simultaneously inspiring and disheartening. It's as if they. have a secret understanding of the underlying patterns of code, one not granted to merer mortals."
+- On expert programmers:
+  > "Skilled programmers are good at picking what best to do next. For many problems, they can immediately identify the code smell that will be most fruitful to resolve. They have excellent judgement. Their decision-making process looks intuitive and effortless, but also inimitable, which makes their actions simultaneously inspiring and disheartening. It's as if they have a secret understanding of the underlying patterns of code, one not granted to mere mortals."
 - Practice _builds_ intuition. Do it enough, and you'll seem magical too!
 
 #### 6.3 Replacing Conditionals with Polymorphism (14 pages)
@@ -546,48 +575,412 @@ const nextBottleNumber = new BottleNumber(bottleNumber.successor());
 - The goal of this chapter is to make the code open to change by removing Liskov violations and replacing conditionals with polymorphism.
 - There's a whole world of different styles of factories waiting to be explored.
 
+---
+
 ### Chapter 07 - Manufacturing Intelligence (14 pages)
+
+- The need for conditional logic did not disappear. Some code, somewhere, has to know how to select the right bottle number class for any situation.
+- In this chapter, that simple factory (BottleNumber.for) launches a greater exploration of factories in general.
 
 #### 7.1 Contrasting the Concrete Factory with Shameless Green (3 pages)
 
+- Factories don't know what to do: instead, they know how to _choose_ who does. They consolidate the choosing and separate the chosen. Shameless Green was procedural because it combined these two things (choosing explicit behavior); the polymorphic approach is object-oriented because it breaks apart the choosing from its implementation.
+
 #### 7.2 Fathoming Factories (2 pages)
+
+- Object-oriented applications rely on polymorphism. Polymorphism results in multiple classes that play a common role. The power of polymorphism is that these role-playing objects are interchangeable from _the message sender's point of view._
+- All players of a role share a common API.
+- The details of these alternate implementation are invisible to the outside world.
+- Factories are where conditionals go to die.
+- Factories vary along these dimensions:
+
+  - 1. The factory can be open to new variants or closed.
+
+  ```js
+  class BottleNumber {
+    static for(number) {
+      let bottleNumberClass;
+
+      try {
+        bottleNumberClass = eval(`BottleNumber${number}`);
+      } catch (e) {
+        bottleNumberClass = BottleNumber;
+      }
+
+      return new bottleNumberClass(number);
+    }
+    // ...
+  }
+  ```
+
+  - 2. The logic that chooses a variant can be owned by the factory or by the variant.
+  - 3. The factory can be responsible for knowing/figuring out which classes are eligible to be manufactured or the variants can volunteer themselves
 
 #### 7.3 Opening the Factory (2 pages)
 
+- Class names are variables in JavaScript, so the `eval` method can take this string as na argument, and attempt to look up the corresponding class.
+- Many folks have no idea that it's possible to locate a class using the string value of its name
+- Good luck finding references to the classes whose names are dynamically constructed.
+- Controlling the flow of a program with exceptions is roundly condemned on the Internet and so must be an evil to be avoid at all costs. (lol)
+- Your goal is to minimize costs, and costs are determined by the situation at hand. There's no hard and fast rule about what's best. It just depends.
+- A factory's fundamental job is to manufacture the correct player of a role.
+
 #### 7.4 Supporting Arbitrary Class Names (4 pages)
+
+- Key/Value Lookup Factory Redux Example:
+
+```js
+class BottleNumber {
+  static for(number) {
+    const number2BottleNumberClass = {
+      0: BottleNumber0,
+      1: BottleNumber1,
+      6: BottleNumber6,
+    };
+
+    const bottleNumberClass = number2BottleNumberClass[number] || BottleNumber;
+
+    return new bottleNumberClass[number]();
+  }
+}
+```
+
+- Procedures are often characterized by many changes of color
+- Code that is more object-oriented tends to group like things together, with fewer changes of topic.
+- The most efficient, expedient way to fulfill a new requirement may be to write a simple, unglamorous procedure, but if this procedure needs to change it should be converted into object oriented code.
+- Procedural code can save you money when used to create small, isolated features that never need to change, but this style of coding will break the bank if used on large, shared features that core to your domain.
+- OO asks you to break code up into small, cohesive pieces.
+- The benefit of having smaller pieces is that each individual piece, relative to its procedural analog, is easier to understand and change. The corollary downside is that diving code into many small pieces can obscure the operation of the whole.
 
 #### 7.5 Dispersing The Choosing Logic (3 pages)
 
+- In the previous factory example, the factory knows everything.
+
+  - It owns the choosing logic (the value of number is n), it knows the things that might be chosen (the class names), and it contains the logic to map between the two (number n means class x).
+  - If the choosing logic changes in lockstep with code that lives in the class being chosen, then the choosing logic belongs in that class, not in the factory. (`BottleNumber.canHandle`)
+
+  ```js
+  class BottleNumber {
+    static for(number) {
+      const bottleNumberClass = [
+        BottleNumber6,
+        BottleNumber1,
+        BottleNumber0,
+        BottleNumber,
+      ].find(candidate => candidate.canHandle(number));
+
+      return new bottleNumberClass(number);
+    }
+
+    static canHandle(number) {
+      return true;
+    }
+    // ...
+  }
+
+  class BottleNumber0 extends BottleNumber {
+    static canHandle(number) {
+      return number === 0;
+    }
+    // ...
+  }
+
+  class BottleNumber1 extends BottleNumber {
+    static canHandle(number) {
+      return number === 1;
+    }
+    // ...
+  }
+
+  class BottleNumber6 extends BottleNumber {
+    static canHandle(number) {
+      return number === 6;
+    }
+    // ...
+  }
+  ```
+
 #### 7.6 Self-registering Candidates (4 pages)
+
+```js
+class BottleNumber {
+  // ...
+  static register(candidate) {
+    BottleNumber.registry.unshift(candidate);
+  }
+  // ...
+}
+
+BottleNumber.registry = [BottleNumber];
+```
 
 #### 7.7 Summary (1 page)
 
+- Maintainable OO code rests on polymorphism.
+
+  - Constructing applications from families of small, interchangeable objects that represent variants of a role.
+
+  ```js
+  class BottleNumber {
+    static for(number) {
+      const bottleNumberClass = BottleNumber.registry.find(candidate =>
+        candidate.canHandle(number)
+      );
+
+      return new bottleNumberClass(number);
+    }
+
+    static register(candidate) {
+      BottleNumber.registry.unshift(candidate);
+    }
+    // ...
+  }
+
+  BottleNumber.registry = [BottleNumber];
+
+  class BottleNumber0 extends BottleNumber {
+    // ...
+  }
+
+  BottleNumber.register(BottleNumber0);
+
+  class BottleNumber1 extends BottleNumber {
+    // ...
+  }
+
+  BottleNumber.register(BottleNumber1);
+
+  class BottleNumber6 extends BottleNumber {
+    // ...
+  }
+
+  BottleNumber.register(BottleNumber6);
+  ```
+
+An interesting subtlety in the registration pattern above lies in how dependencies are managed. There are two ways candidate classes can register themselves:
+
+1. Using explicit factory name (`BottleNumber.register(BottleNumber0)`):
+
+   - Depends on knowing factory's name
+   - More flexible about implementation (doesn't require inheritance)
+   - Breaks if factory name changes
+   - Example: `BottleNumber.register(SpecialContainer)` works even if `SpecialContainer` doesn't inherit
+
+2. Using inheritance-based registration (`BottleNumber0.register(BottleNumber0)`):
+   - Depends on inheritance to find register method
+   - More flexible about factory name
+   - Breaks if implementation moves away from inheritance
+   - Example: Non-inheriting class can't use `SpecialContainer.register(SpecialContainer)`
+
+The choice between these approaches is a bet on which dependency is more stable in your codebase:
+
+- Is the factory name more likely to change than the inheritance structure?
+- Or is the inheritance structure more likely to change than the factory name?
+
+In most cases, the factory name tends to be more stable than implementation inheritance decisions, which is why the example uses the explicit factory name approach. This leaves you free to change how classes implement the interface without being locked into inheritance.
+
+---
+
 ### Chapter 08 - Developing a Programming Aesthetics (38 pages)
+
+This chapter explores how to develop a sense of programming aesthetics and make systematic improvements to code design.
 
 #### 8.1 Appreciating the Mechanical Process (5 pages)
 
+- The 4 steps of the mechanical refactoring process:
+  1. Parse the code into abstract syntax tree
+  2. Find patterns and similarities
+  3. Apply transformations
+  4. Verify the results
+
+> "The goal is not to avoid making mistakes, but rather to make them safely."
+
+- Mechanical refactoring is about following a consistent, repeatable process
+- It's better to take many small, safe steps than few large, risky ones
+
 #### 8.2 Clarifying Responsibilities with Pseudocode (2 pages)
+
+- Use pseudocode to explore and understand responsibilities before implementation
+- Write down what you want the code to do, not how it should do it
+- Look for natural groupings of responsibilities
+
+> "The art of programming is the art of organizing complexity, of mastering multitude and avoiding its bastard chaos."
 
 #### 8.3 Extracting the Verse (3 pages)
 
+- Look for behavior that belongs together
+- Move related code into new methods/classes
+- Use the "Tell, Don't Ask" principle
+- Keep objects focused on a single responsibility
+
 #### 8.4 Coding by Wishful Thinking (3 pages)
+
+> "Write the code you wish you had."
+
+- Start with the interface you want
+- Work backwards to make it real
+- Let the tests drive the implementation
+- Focus on messages between objects, not their internal state
 
 #### 8.5 Inverting Dependencies (7 pages)
 
+- High-level modules should not depend on low-level modules
+- Both should depend on abstractions
+- Abstractions should not depend on details
+- Details should depend on abstractions
+
+> "The 'right' design allows features to be easily added in the future. The challenge is knowing which features those will be."
+
+Examples of dependency inversion:
+
+```js
+// Before
+class Verse {
+  constructor(number) {
+    this.number = new BottleNumber(number);
+  }
+}
+
+// After
+class Verse {
+  constructor(bottleNumber) {
+    this.number = bottleNumber;
+  }
+}
+```
+
 #### 8.6 Obeying the Law of Demeter (8 pages)
+
+- The Law of Demeter (LoD) or principle of least knowledge:
+  - Each unit should have only limited knowledge about other units
+  - Each unit should only talk to its immediate friends
+  - Don't talk to strangers
+
+> "The price of violating Demeter is that many objects become coupled to the shape of distant objects."
+
+Common violations:
+
+```js
+// Violates LoD
+customer.wallet.money.amount;
+
+// Follows LoD
+customer.canAfford(amount);
+```
 
 #### 8.7 Identifying What The Verse Method Wants (5 pages)
 
+- Listen to the code
+- Look for what the method is trying to tell you
+- Identify the natural abstractions
+- Group related behavior together
+
+> "The code is trying to tell you something about the design. Listen to it."
+
 #### 8.8 Pushing Object Creation to the Edge (7 pages)
+
+- Separate object creation from object use
+- Push object creation to the edges of the system
+- Use factories or dependency injection
+- Keep core logic pure and free of creation details
+
+> "Object creation is a detail. Push it to the edges of your application."
 
 #### 8.9 Summary (2 pages)
 
+- Developing programming aesthetics is about recognizing patterns
+- Follow mechanical processes for safe refactoring
+- Use pseudocode to clarify responsibilities
+- Invert dependencies to improve flexibility
+- Obey the Law of Demeter for better encapsulation
+- Push object creation to the edges
+- Let the code guide you to better abstractions
+
+---
+
 ### Chapter 09 - Reaping the Benefits of Design (41 pages)
+
+This chapter focuses on how to leverage good design decisions and maintain them through proper testing strategies.
 
 #### 9.1 Choosing which Units to Test (7 pages)
 
+- Focus on testing _behavior_ rather than implementation
+- Test public interfaces, not private implementation details
+- Consider the cost/benefit ratio of each test
+
+> "The true value of tests lies not in proving correctness, but in specifying behavior."
+
+Guidelines for choosing test targets:
+
+1. Test incoming messages (queries and commands)
+2. Test outgoing commands that have side effects
+3. Don't test outgoing query messages
+4. Don't test private methods directly
+
 #### 9.2 Reorganizing Tests (9 pages)
+
+- Group tests by responsibility rather than implementation
+- Use descriptive test names that convey behavior
+- Maintain test independence
+- Keep tests focused and specific
+
+> "Tests are documentation. Make them tell a story."
+
+Common test organization patterns:
+
+```js
+describe('BottleVerse', () => {
+  // Group by behavior, not implementation
+  describe('when creating verses', () => {
+    it('handles regular numbers');
+    it('handles zero');
+    it('handles one');
+  });
+
+  describe('when rendering text', () => {
+    it('includes the number of bottles');
+    it('handles grammar correctly');
+  });
+});
+```
 
 #### 9.3 Seeking Context Independence (16 pages)
 
+- Tests should be independent of their context
+- Each test should set up its own complete environment
+- Avoid shared state between tests
+- Use dependency injection to control the test environment
+
+> "Dependencies are the enemy of understanding. The more context you need to understand a piece of code, the harder it is to understand."
+
+Techniques for context independence:
+
+1. Use factories for test data
+2. Inject dependencies
+3. Reset state between tests
+4. Avoid global state
+
 #### 9.4 Communicating With the Future (10 pages)
+
+- Write tests that will help future maintainers
+- Focus on behavior and intent
+- Document edge cases and special scenarios
+- Make failure messages meaningful
+
+> "Code is read far more often than it is written. Optimize for reading."
+
+Best practices for future-proof tests:
+
+- Write tests that act as documentation
+- Explain the "why" not just the "what"
+- Make edge cases explicit
+- Use clear, intention-revealing names
+
+Key testing lessons:
+
+1. Tests are more than just verification
+2. They serve as documentation
+3. They enable safe refactoring
+4. They specify behavior
+
+> "The measure of good tests is how well they serve future maintainers."
