@@ -913,29 +913,29 @@ class Verse {
 
 #### 9.3 Seeking Context Independence (16 pages)
 
--
+- An object's context is its surrounding environment.
+- Objects are more usable when they know less.
+- The class has become more abstract but its very name will prevent programmers from recognizing its broader utility.
+- Tests should explain the domain to the reader.
+- Class names that include patterns are a signal that you've given up too soon on the hard problem of naming.
+- Class names should reflect concepts in your domain, not the patterns used to create them.
+- Insisting on simple tests improved both the tests and the code. It ought to be easy to reuse objects.Tests are a form of reuse.
+- Making code eay to test therefore serves the greater purpose of making it easy to reuse. this pays off now and forevermore.
 
 #### 9.4 Communicating With the Future (10 pages)
 
-- Write tests that will help future maintainers
-- Focus on behavior and intent
-- Document edge cases and special scenarios
-- Make failure messages meaningful
+#### 9.5 Summary (2 pages)
 
-> "Code is read far more often than it is written. Optimize for reading."
+- Good OO is build upon small, interchangeable objects that interact via abstractions.
+- Object-oriented applications rely on message sending.
+- Senders are responsible for knowing what they want, receivers, for knowing how to do it.
+- Design Features of Good OO
 
-Best practices for future-proof tests:
+  1. Variants are isolated (often in a new class)
+  2. Variant selection is isolated (often in factories)
+  3. Message senders and receivers are loosely coupled (via injecting dependencies)
+  4. Variants are interchangeable (abstract role players vs hard-coded concretions)
 
-- Write tests that act as documentation
-- Explain the "why" not just the "what"
-- Make edge cases explicit
-- Use clear, intention-revealing names
+### Afterword (2 pages)
 
-Key testing lessons:
-
-1. Tests are more than just verification
-2. They serve as documentation
-3. They enable safe refactoring
-4. They specify behavior
-
-> "The measure of good tests is how well they serve future maintainers."
+- Strive for simplicity. Don't abstract too soon. Focus on smells. Concentrate on difference. Take small steps. Follow the _Flocking Rules_. Refactor under green. Fix the easy problems first. Work horizontally. Seek stable landing points. Be disciplined. Don't chase the shiny thing.
