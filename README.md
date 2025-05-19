@@ -920,9 +920,12 @@ class Verse {
 - Class names that include patterns are a signal that you've given up too soon on the hard problem of naming.
 - Class names should reflect concepts in your domain, not the patterns used to create them.
 - Insisting on simple tests improved both the tests and the code. It ought to be easy to reuse objects.Tests are a form of reuse.
-- Making code eay to test therefore serves the greater purpose of making it easy to reuse. this pays off now and forevermore.
+- Making code easy to test therefore serves the greater purpose of making it easy to reuse. This pays off now and forevermore.
 
 #### 9.4 Communicating With the Future (10 pages)
+
+- Send signals (Prime Number Signal™)
+-
 
 #### 9.5 Summary (2 pages)
 

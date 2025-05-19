@@ -1,4 +1,5 @@
-import { BottleVerse, BottleNumber } from '../lib/bottles';
+import { BottleVerse } from '../lib/bottles';
+import { testPlaysVerseRole } from './helpers';
 
 describe('BottleVerse', () => {
   test('verse general rule upper bound', () => {
@@ -63,4 +64,6 @@ describe('BottleVerse', () => {
       '99 bottles of beer on the wall.\n';
     expect(BottleVerse.lyrics(0)).toBe(expected);
   });
+
+  testPlaysVerseRole(BottleVerse);
 });

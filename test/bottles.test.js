@@ -1,4 +1,10 @@
-import { CountdownSong, VerseFake } from '../lib/bottles';
+import { CountdownSong } from '../lib/bottles';
+
+export class VerseFake {
+  static lyrics(number) {
+    return `This is verse ${number}.\n`;
+  }
+}
 
 describe('CountdownSong', () => {
   test('verse', () => {
