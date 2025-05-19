@@ -783,35 +783,30 @@ In most cases, the factory name tends to be more stable than implementation inhe
 
 ### Chapter 08 - Developing a Programming Aesthetics (38 pages)
 
-This chapter explores how to develop a sense of programming aesthetics and make systematic improvements to code design.
+- This chapter explores how to develop a sense of programming aesthetics and make systematic improvements to code design.
+- The refactoring recipes tell you what to do while at the same tme forbidding you from wandering off to tinker on tangential shiny things.
+- A requirement is implemented in a way that makes you fear for its maintainability
+- Code smells and refactoring recipes represent the distilled judgement of many deeply experienced OO practitioners
+  - [they] have developed a sense of what to actively do (or diligently avoid) in present code to preclude future pain
 
 #### 8.1 Appreciating the Mechanical Process (5 pages)
 
-- The 4 steps of the mechanical refactoring process:
-  1. Parse the code into abstract syntax tree
-  2. Find patterns and similarities
-  3. Apply transformations
-  4. Verify the results
-
-> "The goal is not to avoid making mistakes, but rather to make them safely."
-
-- Mechanical refactoring is about following a consistent, repeatable process
-- It's better to take many small, safe steps than few large, risky ones
+- The story the current implementation tells is that all verses are alike in an abstract way, and that bottle numbers vary within each verse.
+- Programmers add blank lines to indicate changes of topic, and changes of topic suggest multiple responsibilities.
+  - Blank lines smell!
+- Increasing indirection makes code harder to follow.
+- Sadly, advocating changes to code based on feelings you can't explain is not likely to be convincing.
 
 #### 8.2 Clarifying Responsibilities with Pseudocode (2 pages)
 
+> "Paradoxically, when face with uncertainty about what to do next, it can sometimes help to sigh deeply, ignore everything you've learned, and you write a new conditional.
+
 - Use pseudocode to explore and understand responsibilities before implementation
 - Write down what you want the code to do, not how it should do it
-- Look for natural groupings of responsibilities
-
-> "The art of programming is the art of organizing complexity, of mastering multitude and avoiding its bastard chaos."
 
 #### 8.3 Extracting the Verse (3 pages)
 
-- Look for behavior that belongs together
-- Move related code into new methods/classes
-- Use the "Tell, Don't Ask" principle
-- Keep objects focused on a single responsibility
+- The first concern, as always, is what to name the new class. Classes should be named for exactly what they are ... `BottleVerse`
 
 #### 8.4 Coding by Wishful Thinking (3 pages)
 
