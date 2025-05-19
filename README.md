@@ -103,7 +103,7 @@ Notes from reading ["99 Bottles of OOP"](https://sandimetz.com/99bottles) by San
 - [x] ~~_Chapter 06 - Achieving Openness_~~ [2025-05-16]
 - [x] ~~_Chapter 07 - Manufacturing Intelligence_~~ [2025-05-16]
 - [x] ~~_Chapter 08 - Developing a Programming Aesthetics_~~ [2025-05-19]
-- [ ] Chapter 09 - Reaping the Benefits of Design
+- [x] ~~_Chapter 09 - Reaping the Benefits of Design_~~ [2025-05-19]
 
 ## Notes
 
@@ -891,22 +891,18 @@ class Verse {
 
 ### Chapter 09 - Reaping the Benefits of Design (41 pages)
 
-This chapter focuses on how to leverage good design decisions and maintain them through proper testing strategies.
+- Tests help explain the problem domain to future readers.
+  - They expose design problems that make code hard to reuse.
+  - Well-designed code is easy to test; when testing is hard, the code's design needs attention.
 
 #### 9.1 Choosing which Units to Test (7 pages)
 
-- Focus on testing _behavior_ rather than implementation
-- Test public interfaces, not private implementation details
-- Consider the cost/benefit ratio of each test
-
-> "The true value of tests lies not in proving correctness, but in specifying behavior."
-
-Guidelines for choosing test targets:
-
-1. Test incoming messages (queries and commands)
-2. Test outgoing commands that have side effects
-3. Don't test outgoing query messages
-4. Don't test private methods directly
+- Every class should have its own unit test, unless doing otherwise saves money.
+- Unit tests are meant to test the public API of a single class.
+  - Unit tests ought not test collaborators.
+- Integration tests are intended to prove that groups of objects collaborate correctly; they show that an entire chain of behavior works
+- Your general approach to testing should be to create a unit test for every class, and to test every method in that class's public API
+- Tests should give you the freedom to improve code, not glue you to its current implementation
 
 #### 9.2 Reorganizing Tests (9 pages)
 
