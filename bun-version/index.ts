@@ -8,6 +8,12 @@ const highToLow = (upper: number, lower: number) => {
 }
 
 export class Bottles {
+  verseTemplate: typeof BottleVerse
+
+  constructor(verseTemplate = BottleVerse) {
+    this.verseTemplate = verseTemplate
+  }
+
   song() {
     return this.verses(99, 0)
   }
@@ -19,13 +25,27 @@ export class Bottles {
   }
 
   verse(number: number) {
-    const bottleNumber = BottleNumber.for(number)
-    const nextBottleNumber = bottleNumber.successor()
+    return this.verseTemplate.lyrics(number)
+  }
+}
 
+class BottleVerse {
+  bottleNumber: BottleNumber
+
+  constructor(bottleNumber: BottleNumber) {
+    this.bottleNumber = bottleNumber
+  }
+
+  static lyrics(number: number) {
+    return new BottleVerse(BottleNumber.for(number)).lyrics()
+  }
+
+  lyrics() {
     return (
       capitalize(
-        `${bottleNumber} of beer on the wall, ${bottleNumber} of beer.\n`
-      ) + `${bottleNumber.action()}, ${nextBottleNumber} of beer on the wall.\n`
+        `${this.bottleNumber} of beer on the wall, ${this.bottleNumber} of beer.\n`
+      ) +
+      `${this.bottleNumber.action()}, ${this.bottleNumber.successor()} of beer on the wall.\n`
     )
   }
 }
