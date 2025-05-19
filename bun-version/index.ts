@@ -7,15 +7,28 @@ const highToLow = (upper: number, lower: number) => {
     .map((_, i) => upper - i)
 }
 
-export class Bottles {
-  verseTemplate: typeof BottleVerse
+interface VerseRole {
+  lyrics(number: number): string
+}
 
-  constructor(verseTemplate = BottleVerse) {
+type VerseTemplate = {
+  new (...args: any[]): unknown
+  lyrics(number: number): string
+}
+
+export class CountdownSong {
+  verseTemplate: VerseTemplate
+  max: number
+  min: number
+
+  constructor(verseTemplate: VerseTemplate = BottleVerse, max = 99, min = 0) {
     this.verseTemplate = verseTemplate
+    this.max = max
+    this.min = min
   }
 
   song() {
-    return this.verses(99, 0)
+    return this.verses(this.max, this.min)
   }
 
   verses(upper: number, lower: number) {
@@ -29,7 +42,7 @@ export class Bottles {
   }
 }
 
-class BottleVerse {
+export class BottleVerse implements VerseRole {
   bottleNumber: BottleNumber
 
   constructor(bottleNumber: BottleNumber) {
@@ -50,7 +63,17 @@ class BottleVerse {
   }
 }
 
-class BottleNumber {
+export class VerseFake implements VerseRole {
+  static lyrics(number: number): string {
+    return `This is verse ${number}.\n`
+  }
+
+  lyrics(number: number): string {
+    return VerseFake.lyrics(number)
+  }
+}
+
+export class BottleNumber {
   static registry: Array<typeof BottleNumber> = []
 
   number: number
@@ -102,7 +125,7 @@ class BottleNumber {
 
 BottleNumber.registry = [BottleNumber]
 
-class BottleNumber0 extends BottleNumber {
+export class BottleNumber0 extends BottleNumber {
   static canHandle(number: number) {
     return number === 0
   }
@@ -122,7 +145,7 @@ class BottleNumber0 extends BottleNumber {
 
 BottleNumber.register(BottleNumber0)
 
-class BottleNumber1 extends BottleNumber {
+export class BottleNumber1 extends BottleNumber {
   static canHandle(number: number) {
     return number === 1
   }
@@ -142,7 +165,7 @@ class BottleNumber1 extends BottleNumber {
 
 BottleNumber.register(BottleNumber1)
 
-class BottleNumber6 extends BottleNumber {
+export class BottleNumber6 extends BottleNumber {
   static canHandle(number: number) {
     return number === 6
   }

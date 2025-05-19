@@ -1,5 +1,5 @@
 import { BottleVerse } from '../lib/bottles';
-import { testPlaysVerseRole } from './helpers';
+import { testPlaysVerseRole } from '../bun-version/helpers';
 
 describe('BottleVerse', () => {
   test('verse general rule upper bound', () => {
