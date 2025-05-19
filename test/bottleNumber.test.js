@@ -17,4 +17,16 @@ describe('BottleNumber', () => {
     expect(BottleNumber.for(7).constructor).toBe(BottleNumber);
     expect(BottleNumber.for(42).constructor).toBe(BottleNumber);
   });
+
+  test('successor method returns "next" bottleNumber', () => {
+    const bottleNumber0 = BottleNumber.for(0);
+    const bottleNumber99 = BottleNumber.for(99);
+    const bottleNumber98 = BottleNumber.for(98);
+
+    // 0 is special (loops back to 99)
+    expect(bottleNumber0.successor()).toStrictEqual(bottleNumber99);
+
+    // default case
+    expect(bottleNumber99.successor()).toStrictEqual(bottleNumber98);
+  });
 });

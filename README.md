@@ -906,46 +906,14 @@ class Verse {
 
 #### 9.2 Reorganizing Tests (9 pages)
 
-- Group tests by responsibility rather than implementation
-- Use descriptive test names that convey behavior
-- Maintain test independence
-- Keep tests focused and specific
-
 > "Tests are documentation. Make them tell a story."
 
-Common test organization patterns:
-
-```js
-describe('BottleVerse', () => {
-  // Group by behavior, not implementation
-  describe('when creating verses', () => {
-    it('handles regular numbers');
-    it('handles zero');
-    it('handles one');
-  });
-
-  describe('when rendering text', () => {
-    it('includes the number of bottles');
-    it('handles grammar correctly');
-  });
-});
-```
+- Unit tests ought to tell an illuminating story.
+  - They should demonstrate and confirm the class's direct responsibilities, and do nothing else.
 
 #### 9.3 Seeking Context Independence (16 pages)
 
-- Tests should be independent of their context
-- Each test should set up its own complete environment
-- Avoid shared state between tests
-- Use dependency injection to control the test environment
-
-> "Dependencies are the enemy of understanding. The more context you need to understand a piece of code, the harder it is to understand."
-
-Techniques for context independence:
-
-1. Use factories for test data
-2. Inject dependencies
-3. Reset state between tests
-4. Avoid global state
+-
 
 #### 9.4 Communicating With the Future (10 pages)
 

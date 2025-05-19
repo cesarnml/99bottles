@@ -15,8 +15,7 @@
   "jest": {
     "testEnvironment": "node",
     "testMatch": [
-      "**/test/bottles.test.js",
-      "**/test/bottleNumber.test.js"
+      "**/test/*.test.js"
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
