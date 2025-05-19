@@ -102,7 +102,7 @@ Notes from reading ["99 Bottles of OOP"](https://sandimetz.com/99bottles) by San
 - [x] ~~_Chapter 05 - Separating Responsibilities_~~ [2025-05-15]
 - [x] ~~_Chapter 06 - Achieving Openness_~~ [2025-05-16]
 - [x] ~~_Chapter 07 - Manufacturing Intelligence_~~ [2025-05-16]
-- [ ] Chapter 08 - Developing a Programming Aesthetics
+- [x] ~~_Chapter 08 - Developing a Programming Aesthetics_~~ [2025-05-19]
 - [ ] Chapter 09 - Reaping the Benefits of Design
 
 ## Notes
