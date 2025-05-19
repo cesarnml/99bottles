@@ -810,21 +810,18 @@ In most cases, the factory name tends to be more stable than implementation inhe
 
 #### 8.4 Coding by Wishful Thinking (3 pages)
 
-> "Write the code you wish you had."
-
-- Start with the interface you want
-- Work backwards to make it real
-- Let the tests drive the implementation
-- Focus on messages between objects, not their internal state
+> "Write the code you wish you had and work backwards until you arrive at the code you currently want to improve"
 
 #### 8.5 Inverting Dependencies (7 pages)
 
-- High-level modules should not depend on low-level modules
-- Both should depend on abstractions
-- Abstractions should not depend on details
-- Details should depend on abstractions
-
-> "The 'right' design allows features to be easily added in the future. The challenge is knowing which features those will be."
+- `Dependency Inversion Principle (DIP) => "depend on abstractions, not concretions."
+- Isolate the behavior you want to vary.
+- One of the most fundamental concepts in OO is to isolate the behavior you want to vary.
+- The injection point becomes a seam across which objects interact in a loosely-coupled way.
+- `Dependency Injection Principle`:
+  1. High-level modules should not depend upon low-level modules. Both should depend upon abstractions.
+  2. Abstraction should not depend upon details. Details should depend upon abstractions.
+- Isolating variants often requires that you invert dependencies
 
 Examples of dependency inversion:
 
@@ -846,50 +843,49 @@ class Verse {
 
 #### 8.6 Obeying the Law of Demeter (8 pages)
 
-- The Law of Demeter (LoD) or principle of least knowledge:
-  - Each unit should have only limited knowledge about other units
-  - Each unit should only talk to its immediate friends
-  - Don't talk to strangers
-
-> "The price of violating Demeter is that many objects become coupled to the shape of distant objects."
-
-Common violations:
-
-```js
-// Violates LoD
-customer.wallet.money.amount;
-
-// Follows LoD
-customer.canAfford(amount);
-```
+- Dependencies can't be avoided but should certainly be minimized. be alert for superfluous dependencies and remove them with extreme prejudice.
+- Tightly-coupled code is difficult to test. Tightly-coupled object require adding lots of context, all of which must be provided in order to run any test.
+- If test setup involves creating a bunch of increasingly distant objects, or if you find yourself putting stubs in stubs, it means that the object you are testing is too tightly coupled to other parts of your application.
+- An object that's hard to test is attempting to warn you that it will be difficult to reuse.
+- Objects may only send messages to direct collaborators
+- Cure Law of Demeter violations via `message forwarding` methods.
 
 #### 8.7 Identifying What The Verse Method Wants (5 pages)
 
-- Listen to the code
-- Look for what the method is trying to tell you
-- Identify the natural abstractions
-- Group related behavior together
-
-> "The code is trying to tell you something about the design. Listen to it."
+- `new`-is-just-another-message-send
+- The rule for injecting dependencies is that you should inject the thing you want to talk to.
+- You should inject _instances_, not _classes_ to which you are forced to send `new` and then something else
+- Testing is the first form of [code] reuse
+- Pain in testing is a sign of a rigid application and an indication that there's something wrong with the design
+- If you want something, just ask for it.
+  - If the receiver doesn't know how to comply, teach it.
+- Don't be trapped by what's current true, but instead, loosen coupling by _designing_ a conversation that embodies what the message sender wants.
+- In instances, common behavior combines with differing data to create objects that collaborate to form your application.
+- Putting domain behavior on the class side rather than on the instance side places a bet that this domain concept will never involve data that varies
 
 #### 8.8 Pushing Object Creation to the Edge (7 pages)
 
-- Separate object creation from object use
-- Push object creation to the edges of the system
-- Use factories or dependency injection
-- Keep core logic pure and free of creation details
-
-> "Object creation is a detail. Push it to the edges of your application."
+- The _Blank Line_ code smell tells you that `#lyrics` probably violates the Single Responsibility Principle.
+- Well-designed object-oriented application consist of loosely-coupled objects that rely on polymorphism to vary behavior.
+- Injecting dependencies loosens coupling.
+- Polymorphism isolates variant behavior into sets of interchangeable objects that look the same from the outside but behave differently on the inside.
+- Application that use dependency injection evolve, naturally and of necessity, into system where object creation begins to separate from object use.
+- Experienced object-oriented programmers know that applications most easily adapt to the unknown future if they:
+  1. resist giving instance methods knowledge of concrete class names, and
+  2. seek opportunities to move the object creation towards the edges of the application
+- You should be eternally alert for instance methods that reference class names and perpetually on the lookout for ways to remove those references.
 
 #### 8.9 Summary (2 pages)
 
-- Developing programming aesthetics is about recognizing patterns
-- Follow mechanical processes for safe refactoring
-- Use pseudocode to clarify responsibilities
-- Invert dependencies to improve flexibility
-- Obey the Law of Demeter for better encapsulation
-- Push object creation to the edges
-- Let the code guide you to better abstractions
+- Vague feelings about. the rightness of code become part of your aesthetic once you can eloquently and convincingly use actual words to explain your concerns and proposed improvements
+- Five precepts of good object-oriented programming aesthetic:
+  1. Put domain behavior on instances
+  2. Be averse to allowing instance methods to know the names of constants
+  3. Seek to depend on injected abstractions rather than hard-coded concretions
+  4. Push object creation to the edges, expecting objects to be created in one place and used in another.
+  5. Avoid Demeter violations, using the temptation to create them as a spur to search for deeper abstractions
+- The practical effect of following these precepts is to loosen the coupling between objects.
+- The certainty of change coupled with the uncertainty of that change's location means that your best programming strategy is to strive to loosen the coupling of all code everywhere from the moment of initial creation.
 
 ---
 
